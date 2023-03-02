@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://waynesway.github.io</id>
+    <title>翻过</title>
+    <updated>2023-03-02T02:33:29.361Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://waynesway.github.io"/>
+    <link rel="self" href="https://waynesway.github.io/atom.xml"/>
+    <subtitle>翻过山丘，才发现白了头</subtitle>
+    <logo>https://waynesway.github.io/images/avatar.png</logo>
+    <icon>https://waynesway.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2023, 翻过</rights>
+    <entry>
+        <title type="html"><![CDATA[UBUNTU UFW 关闭端口]]></title>
+        <id>https://waynesway.github.io/post/ubuntu-ufw-guan-bi-duan-kou/</id>
+        <link href="https://waynesway.github.io/post/ubuntu-ufw-guan-bi-duan-kou/">
+        </link>
+        <updated>2023-03-01T05:23:55.000Z</updated>
+        <content type="html"><![CDATA[<p>1.安装<br>
+sudo apt-get install ufw2.启用<br>
+sudo ufw enable<br>
+sudo ufw default deny<br>
+运行以上两条命令后，开启了防火墙，并在系统启动时自动开启。关闭所有外部对本机的访问，但本机访问外部正常。3.开启/禁用<br>
+sudo ufw allow | deny [service]打开或关闭某个端口，例如:<br>
+sudo ufw allow smtp允许所有的外部IP访问本机的25/tcp (smtp)端口sudo ufw allow 22/tcp允许所有的外部IP访问本机的22/tcp (ssh)端口sudo ufw allow 53允许外部访问53端口(tcp/udp)<br>
+sudo ufw allow from 192.168.1.100允许此IP访问所有的本机端口<br>
+4.查看防火墙状态<br>
+sudo ufw status<br>
+5.根据端口删除规则<br>
+先查询规则号:<br>
+sudo ufw status numbered</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[N1部署小雅的docker]]></title>
+        <id>https://waynesway.github.io/post/n1-bu-shu-xiao-ya-de-docker/</id>
+        <link href="https://waynesway.github.io/post/n1-bu-shu-xiao-ya-de-docker/">
+        </link>
+        <updated>2023-02-10T05:04:08.000Z</updated>
+        <content type="html"><![CDATA[<p>N1开始部署的这个小雅的docker，用起来没什么问题。最近阿里的政策收紧了。<br>
+需要去设置自己的token，刚开始没有设置也能愉快的玩耍。但是最近不能打开了，于是开始折腾。把原来的容器删掉之后就怎么也进不去端口了。折腾了半天，可能是之前自己手动在防火墙里面加的乱七八糟的规则的原因。于是删掉还是不行。没法自己去群里面爬找到作者的推荐方法。把防火墙重置一下就行了。原来的docker是host格式的，新建的docker用默认的birdge就行。</p>
+<p>下面的命令搜索来源网络备份记录下。</p>
+<p>但是这个管理员的端口还是进不去，不管了以后再研究把。</p>
+<p>1.先把自己的token建立下</p>
+<h3 id="阿里token">阿里token</h3>
+<p>****<a href="https://alist.nn.ci/zh/guide/drivers/aliyundrive.html">https://alist.nn.ci/zh/guide/drivers/aliyundrive.html</a>    或</p>
+<p><a href="https://aliyundriver-refresh-token.vercel.app/">https://aliyundriver-refresh-token.vercel.app/</a></p>
+<p>获取你的移动端token</p>
+<p>然后，在终端命令行 （xxxxxxxxxxxxxxxx 就是你获取的token）</p>
+<p><strong>echo xxxxxxxxxxxxxxxxxxxxxx &gt; /etc/xiaoya/mytoken.txt</strong></p>
+<p>或者将你自己获取到的token粘贴至 etc/xiaoya/mytoken.txt文件里并保存<br>
+2.安装部署<br>
+下载http://docker.xiaoya.pro/update_xiaoya.sh，然后进行编辑，原版内容为：</p>
+<p>docker stop xiaoya<br>
+docker rm xiaoya<br>
+docker pull xiaoyaliu/alist:latest<br>
+if [ -d /etc/xiaoya/mytoken.txt ]; then<br>
+rm -rf /etc/xiaoya/mytoken.txt<br>
+fi<br>
+mkdir -p /etc/xiaoya<br>
+touch /etc/xiaoya/mytoken.txt<br>
+touch /etc/xiaoya/pikpak.txt<br>
+docker run -d -p 5678:80 -v /etc/xiaoya:/data --restart=always --name=xiaoya xiaoyaliu/alist:latest<br>
+将红字替换为：<br>
+docker run -d -p 5678:80 -p 5244:5244 -v /etc/xiaoya/mytoken.txt:/mytoken.txt --restart=always --name=xiaoya xiaoyaliu/alist:latest<br>
+执行后就可以进入管理页面。</p>
+<p>管理URL：http://x.x.x.x:5244/@manage</p>
+<p>有了管理界面，就可以自己再新添资源了，还可以把自己的网盘也加入进去，不然只能搞套娃，自己新建alist再把这个小雅超集alist包含进去。</p>
+<p>3.Docker 重置防火墙规则 重启。<br>
+iptables -F<br>
+service dockerd restart</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[外贸搜计划安排]]></title>
+        <id>https://waynesway.github.io/post/wai-mao-sou-ji-hua-an-pai/</id>
+        <link href="https://waynesway.github.io/post/wai-mao-sou-ji-hua-an-pai/">
+        </link>
+        <updated>2023-02-06T11:14:57.000Z</updated>
+        <content type="html"><![CDATA[<p>主要搜索葡萄牙语密排潜在客户。<br>
+说葡萄牙语的国家如下<br>
+葡萄牙、巴西、安哥拉、莫桑比克、几内亚比绍、佛得角、圣多美和普林西比、东帝汶<br>
+我觉得前两个国家是重点，但是非洲的国家也需要注意。好像是咱们有莫桑比客的客户。小国家也有规模差不多的客户。</p>
+<p>1.葡萄牙语关键词<br>
+https://hnhitnails.com/ 以李老师这个客户的网站为参考可以把密排类的关键词 大词整理到表格里面做为关键词<br>
+还可以从ins tag出发 #extensoesdecilios 从里面找跟密排相关的话题数量多的作为关键词<br>
+建议还是以大词为基础出发</p>
+<p>2.找到的关键词从外贸搜里面用产品搜客户先搜网址，有网址了之后再用网址搜邮箱。</p>
+<p>邮箱总数要积累够2000个，群发在腾讯企业邮箱群发单显。 腾讯的邮箱好像是限制每天数量1500封。 建议编辑好的邮件可以做一个定时发送，各一个小时发送一点，每封数量好像是100封</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Giffgaff 电话卡使用FAQ]]></title>
+        <id>https://waynesway.github.io/post/giffgaff-dian-hua-qia-shi-yong-faq/</id>
+        <link href="https://waynesway.github.io/post/giffgaff-dian-hua-qia-shi-yong-faq/">
+        </link>
+        <updated>2023-02-04T01:44:28.000Z</updated>
+        <content type="html"><![CDATA[<p>以下内容摘录自网络资源备份用。<br>
+常见 Q&amp;A<br>
+Q1：激活 Giffgaff 电话卡可以挑选号码吗？<br>
+A1：不可以，号码是随机分配的。</p>
+<p>Q2：没有收到 Giffgaff 电话卡信函，可以重新申请吗？<br>
+A2：可以，在官网重新申请就行，也可以联系客服。</p>
+<p>Q3：激活 Giffgaff 号码后可以申请更换号码？<br>
+A3：可以，每个账号有两次机会更换号码，点击这里申请更换.</p>
+<p>Q4：Giffgaff 电话卡如何保号？<br>
+A4：每半年至少发一次短信或者拨打电话。</p>
+<p>Q5：Giffgaff 电话卡有没有月租费用？<br>
+A5：没有月租，余额不会过期。</p>
+<p>Q6：Giffgaff 电话卡拨打电话及短信费用怎么计费？<br>
+A6：给 Giffgaff 号码免费通话和短信，其它如下表：</p>
+<p>Giffgaff 通话费用<br>
+Giffgaff 费用/官网</p>
+<p>Q7：在中国内地能长期漫游吗？<br>
+A7：目前用户协议未写明是否可以长期在境外漫游，所以后续官方会限制也说不准。</p>
+<p>Q8：号码过期了怎么办？<br>
+A8：根据虚拟号的博主反馈，号码过期前会有邮件通知。</p>
+<p>Q9：怎么查询自己的号码？<br>
+A9：编辑短信内容 Number 发送至2020，点击这里自动生成短信内容。</p>
+<p>Q10：怎么查询自己的号码余额？<br>
+A10：手机拨打*100#（点击自动拨打），自动弹出余额界面。</p>
+<p>其它<br>
+防骚扰<br>
+英国电话号码同样有着电话骚扰和诈骗，这里建议激活 Giffgaff 电话卡之后，发送短信内容 TPS 至 85095即可（发送短信和接受短信均免费），点击这里自动生成短信内容。其它具体内容可以查看电话防骚扰方案之英国篇。</p>
+<p>漫游注意事项<br>
+Giffgaff 电话卡在中国内地漫游接听和拒听都需要扣费，如遇到来电，只能等待对方挂断；在欧盟三天自动激活欧盟漫游。</p>
+<p>WiFi Extra<br>
+注：WiFi Extra 功能，Android 用户最低支持到 Android 5<br>
+该 WiFi 是 O2 UK 推出的付费 WiFi，用户可在伦敦地铁等地方连接到 WiFi（自动链接），iPhone 用户启用该功能需要在 Giffgaff App 里下载安装 WiFi Extra 描述文件；Android 用户打开 WiFi 设置界面，新增 WiFi 名称/SSID 为 WiFi Extra，安全级别设置 WPA/WPA2 or WPA3-Enterprise，选择 EAP method 为 SIM，最后点击保存即可。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Linux 主机在IPV4/IPV6下，优先使用IPV4链接设置教程]]></title>
+        <id>https://waynesway.github.io/post/linux-zhu-ji-zai-ipv4ipv6-xia-you-xian-shi-yong-ipv4-lian-jie-she-zhi-jiao-cheng/</id>
+        <link href="https://waynesway.github.io/post/linux-zhu-ji-zai-ipv4ipv6-xia-you-xian-shi-yong-ipv4-lian-jie-she-zhi-jiao-cheng/">
+        </link>
+        <updated>2023-02-03T11:21:58.000Z</updated>
+        <content type="html"><![CDATA[<p>本人有阿三webhorizon的nat小鸡。科学使用时候搭配cf，觉得ipv6有那么一点点的延迟。虽说都nat了，还是觉得那一点延迟难受。于是网上找到了如下教程禁用ipv6，搭配公用的ipv4出口感觉浏览大部分网站还是有那么一丢丢快的。</p>
+<p>1、如果要使用ipv4连接优先也不禁用ipv6，需要修改gai.conf配置文件使其生效。<br>
+编辑 /etc/gai.conf 文件，查找 precedence ::ffff:0:0/96 100 将前面的注释 # 去掉并保存，如果前面没有 # 号表示已经更改过设置了。如果没有查找到该行直接在文件末尾添加上</p>
+<p>precedence ::ffff:0:0/96 100<br>
+CentOS默认没有 /etc/gai.conf 该文件，可以执行命令</p>
+<p>cp -p /usr/share/doc/glibc-common-2.17/gai.conf /etc/<br>
+拷贝该文件后修改。</p>
+<p>修改完成保存生效。这样设置后有IPv4的话优先使用IPv4，也不影响IPv6的使用。</p>
+<p>注：::ffff:0:0/96 为IPv4/IPv6转换地址 (IPv4-mapped IPv6 address)。</p>
+<p>2、如果确实不需要IPv6，我们可以禁用IPv6<br>
+执行命令：echo &quot;1&quot; &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6<br>
+这样就掉了禁用ipv6，如需恢复的话删除掉 /proc/sys/net/ipv6/conf/all/disable_ipv6 这个文件就可以。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[第一篇]]></title>
+        <id>https://waynesway.github.io/post/di-yi-pian/</id>
+        <link href="https://waynesway.github.io/post/di-yi-pian/">
+        </link>
+        <updated>2023-02-03T11:16:16.000Z</updated>
+        <content type="html"><![CDATA[<p>刚刚部署成功。已经好久没有一个固定的地方发表点什么东西了。<br>
+这个博客当成是自己的笔记本。记录一些乱七八糟的东西<br>
+<img src="https://fanguo.eu.org/images/avatar.png?v=1675422949492" alt="头像" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://waynesway.github.io/post/hello-gridea/</id>
+        <link href="https://waynesway.github.io/post/hello-gridea/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<!-- more -->
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://gridea.dev/">Gridea 主页</a><br>
+<a href="https://fehey.com/">示例网站</a></p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+</feed>
