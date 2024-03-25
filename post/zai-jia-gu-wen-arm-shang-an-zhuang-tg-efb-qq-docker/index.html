@@ -1,0 +1,182 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>在甲骨文arm上安装TG-EFB-QQ-Docker | 翻过</title>
+
+<link rel="shortcut icon" href="https://waynesway.github.io/favicon.ico?v=1711339240301">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://waynesway.github.io/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NXHCQ3G7R"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-2NXHCQ3G7R');
+    </script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            翻过
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1711339240301" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    在甲骨文arm上安装TG-EFB-QQ-Docker
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2023-08-02 ·
+                    </time>
+                    
+                </div>
+                <div class="post-content">
+                    <p>自己有个韩国的龟壳，里面开了三个jj。其中两个amd，一个arm。一个amd已经挂了些网站。另一个amd 挂了efb机器人专门转发微信的。闲置了一个arm所以打算把这个也利用起来。</p>
+<p>想把自己的qq也转发起来。<br>
+之前有操作过微信的项目。全是手工操作的，觉得应该不难。于是找了下发现这个有个docker的项目，难度更低了一些。<br>
+https://github.com/sakarie9/TG-EFB-QQ-Docker</p>
+<p>话不多说开整。<br>
+先遇到的问题是arm版本的docker-compose版本过低，需要更新，下面是求助gpt之后的操作命令</p>
+<p>首先，检查当前安装的 Docker Compose 版本。在命令行中运行以下命令：</p>
+<p>docker-compose --version<br>
+下载新版本的 Docker Compose。请前往 Docker Compose 的官方 GitHub 页面（https://github.com/docker/compose/releases）或 Docker 官方文档，查找最新的版本。</p>
+<p>下载适用于您的操作系统的二进制文件。根据您的操作系统（Windows、macOS 或 Linux）选择对应的下载链接。</p>
+<p>在 Linux 系统中，您可能需要将下载的二进制文件移动到 /usr/local/bin/ 目录，并赋予执行权限。可以使用以下命令完成：</p>
+<p>sudo mv /path/to/downloaded/docker-compose /usr/local/bin/docker-compose<br>
+sudo chmod +x /usr/local/bin/docker-compose</p>
+<p>更新完docker之后可以运行了，下一步到了登录qq这一步了。我开始用的密码登录，不行一直提示报错，于是删掉密码开始尝试扫码登录。但是一直提示不能登录。偷懒少了一步生成device.json这一步。于是停止docker，按教程生成了下device.json. 但是还是提示不支持扫码协议。百度下看了下别人的经验。原来device.json里面的protocol,改成2，改成2之后登录上号就是手表了，只用扫一次码就可以，以后都可以自己登录了。改完之后很激动，终于出来二维码了。但是手机扫码后提示二维码不可用。<br>
+又搜索了下，发现提示最好手机设备也在统一网段，打开科学方式在同一个节点下终于登陆进来了。</p>
+<p>这篇流水账是记录下自己踩得坑。感谢做成docker的作者，节省了大部分的部署操作命令。</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://waynesway.github.io/post/zai-openwrt-qi-dong-wan-cheng-hou-qi-dong-mosdns/" class="post-title gt-a-link">
+                    在openwrt启动完成后启动Mosdns
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">翻过山丘，才发现白了头</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://waynesway.github.io/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>
