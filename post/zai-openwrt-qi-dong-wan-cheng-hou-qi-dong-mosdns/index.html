@@ -1,0 +1,213 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>在openwrt启动完成后启动Mosdns | 翻过</title>
+
+<link rel="shortcut icon" href="https://waynesway.github.io/favicon.ico?v=1713756829359">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://waynesway.github.io/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NXHCQ3G7R"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-2NXHCQ3G7R');
+    </script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            翻过
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1713756829359" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    在openwrt启动完成后启动Mosdns
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2023-07-06 ·
+                    </time>
+                    
+                </div>
+                <div class="post-content">
+                    <p>要在 OpenWrt 启动完成后自动启动 Mosdns，你可以按照以下步骤进行操作：</p>
+<p>在 OpenWrt 上创建一个启动脚本。可以使用以下命令创建一个新的启动脚本文件（例如 mosdns.sh）：</p>
+<p>bash</p>
+<p>vi /etc/init.d/mosdns.sh<br>
+在编辑器中打开 mosdns.sh 文件并添加以下内容：</p>
+<p>bash</p>
+<p>#!/bin/sh /etc/rc.common</p>
+<p>START=99<br>
+USE_PROCD=1</p>
+<p>start_service() {<br>
+procd_open_instance<br>
+procd_set_param command /usr/bin/mosdns start -c /usr/bin/Mosdns/config.yaml<br>
+procd_set_param respawn<br>
+procd_set_param stdout 1<br>
+procd_set_param stderr 1<br>
+procd_close_instance<br>
+}</p>
+<p>stop_service() {<br>
+procd_close_instance<br>
+}</p>
+<p>reload_service() {<br>
+procd_send_signal mosdns<br>
+}</p>
+<p>service_triggers() {<br>
+procd_add_reload_trigger &quot;mosdns&quot;<br>
+}</p>
+<p>start_service<br>
+注意替换 /usr/bin/Mosdns/config.yaml 为你的 Mosdns 配置文件的实际路径。</p>
+<p>保存并关闭文件。</p>
+<p>授权脚本文件可执行权限：</p>
+<p>bash</p>
+<p>chmod +x /etc/init.d/mosdns.sh<br>
+启用启动脚本：</p>
+<p>bash</p>
+<p>/etc/init.d/mosdns.sh enable<br>
+重新启动 OpenWrt，Mosdns 应该会在启动完成后自动启动。</p>
+<p>这样，每次 OpenWrt 启动完成后，Mosdns 将会自动运行。你可以使用以下命令来检查 Mosdns 是否正在运行：</p>
+<p>bash</p>
+<p>ps aux | grep mosdns<br>
+你应该能够看到 Mosdns 的进程信息。</p>
+<p>这将会在系统启动时自动启动 mosdns 服务。你可以使用以下命令手动启动或停止服务：</p>
+<p>bash</p>
+<p>/etc/init.d/mosdns start  # 启动服务<br>
+/etc/init.d/mosdns stop   # 停止服务<br>
+你也可以使用以下命令来检查服务的状态：</p>
+<p>bash</p>
+<p>/etc/init.d/mosdns status  # 查看服务状态</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://waynesway.github.io/post/da-meng-ge-ci/" class="post-title gt-a-link">
+                    大梦歌词
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">翻过山丘，才发现白了头</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://waynesway.github.io/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>
