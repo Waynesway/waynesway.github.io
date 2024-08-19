@@ -1,0 +1,206 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Subconverter linux 平台下面的安装使用 | 翻过</title>
+
+<link rel="shortcut icon" href="https://waynesway.github.io/favicon.ico?v=1724059591018">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://waynesway.github.io/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NXHCQ3G7R"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-2NXHCQ3G7R');
+    </script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            翻过
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1724059591018" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Subconverter linux 平台下面的安装使用
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2023-05-31 ·
+                    </time>
+                    
+                </div>
+                <div class="post-content">
+                    <p>前段时间在docker里面部署了原版的subconverter，最近由于自己更新了几个vless节点，原版的不支持vless，在Google找答案的过程中发现了下面的项目<br>
+https://github.com/MetaCubeX/subconverter</p>
+<p>遂关闭docker从新安装，下面是百度到的过程简单记录下。<br>
+后期了解到本地可以内置文件减少订阅的连接长度后期再学习下。</p>
+<p>1.简单的安装过程。<br>
+user@server:~$ mkdir ./subc<br>
+user@server:~$ cd subc<br>
+user@server:~$ wget https://github.com/MetaCubeX/subconverter/releases/download/Alpha/subconverter_linux64.tar.gz<br>
+user@server:~$ tar -zxvf subconverter_linux64.tar.gz<br>
+user@server:~$ cd subconverter<br>
+// 常驻后台，启动服务<br>
+user@server:~$ nohup ./subconverter &amp;<br>
+user@server:~$ ss -tnl | grep 25500<br>
+// 能看到25500的端口监听就对了<br>
+user@server:~$<br>
+// 服务器上，这个正常进程在，就可以了<br>
+部署在甲骨文上面，但是用MobaXterm 自带的ftp连接时候不能看到新建的文件夹在哪个目录。需要自己对这个文件夹有个具体的了解。<br>
+cd subc 之后 find subconverter 之后就可以显示在这个文件夹下面的所有文件和目录。<br>
+记录下具体的路径方便后期更新和维护。<br>
+/root/subc/subconverter/profiles<br>
+/root/subc/subconverter/config</p>
+<p>2.Subconverter 进阶操作。<br>
+之前是用docker傻瓜化一件部署的，对软件的简单基础应用有了一个初步的了解知道调用参数，调用外部ini文件设置proxygroup等操作。但是就是觉得连接encode之后太长了而且也不美观。强迫症开始研读文档，subconverter 支持getprofile调用。http://127.0.0.1:25500/getprofile?name=profiles/formyairport.ini&amp;token=passwd<br>
+前提是需要在profile文件内建立对应的配置文件。和在pre文件内设置token密码了</p>
+<p>[Profile]<br>
+target=clash<br>
+url=这部分就是直接机场或者自己的订阅文件连接，好处是不用encode了直接放连接就行。有多个需要用|分开<br>
+config=这部分是调用配置文件设置具体分组规则和ruset规则。应该是可以支持调用本地的config文件夹内的文件，但是我可能是自己操作的问题试了几次没有成功遂放弃，改用之前放到gist的托管连接也可，问题解决<br>
+后续的问题是加了vless的订阅之后原版clashwindows和shellclash订阅报错无法订阅。只能是再做一套订阅规则分开来了。</p>
+<p>Token密码设置的时候我是先打算直接新建pref.ini的文件，后续一直报错，发现文件已经有pref.toml格式的文件了，于是就改动这个之后终于可行了。</p>
+<p>3.再美化连接，我没有绑定域名，之前都是ip格式简单粗暴。觉得还是加个域名比较美观。小白直接用的宝塔，后台直接新建网站添加反代，反代到25500端口，申请ssl，开启完成。</p>
+<p>软件强大，单pref里面的配置还有好多可以支持自定义，但是现在用不到后续在细读文档。<br>
+如何更换软件运行的端口<br>
+修改程序目录下的 pref.toml<br>
+如果需要修改为本地监听，修改listen，从'0.0.0.0'<br>
+如果需要修改监听端口，修改port，从25500到你想要设置的端口（端口需要未被占用的）<br>
+[server]<br>
+listen = &quot;127.0.0.1&quot;<br>
+port = 6419<br>
+serve_file_root = &quot;web&quot;预留位置，后面讲解</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://waynesway.github.io/post/lets-encrypt-bao-ta-xu-qian/" class="post-title gt-a-link">
+                    Let&#39;s Encrypt 宝塔续签
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">翻过山丘，才发现白了头</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://waynesway.github.io/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>
