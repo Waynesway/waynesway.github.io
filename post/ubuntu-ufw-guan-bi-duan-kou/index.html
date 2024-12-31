@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>UBUNTU UFW 关闭端口 | 翻过</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://waynesway.github.io/favicon.ico?v=1735628311042">
+<link rel="stylesheet" href="https://waynesway.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2NXHCQ3G7R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2NXHCQ3G7R');
+</script>
+
+
+    <meta name="description" content="1.安装
+sudo apt-get install ufw2.启用
+sudo ufw enable
+sudo ufw default deny
+运行以上两条命令后，开启了防火墙，并在系统启动时自动开启。关闭所有外部对本机的访问，但本机访问外..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://waynesway.github.io">
+        <img src="https://waynesway.github.io/images/avatar.png?v=1735628311042" class="site-logo">
+        <h1 class="site-title">翻过</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      翻过山丘，才发现白了头
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://waynesway.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">UBUNTU UFW 关闭端口</h2>
+            <div class="post-date">2023-03-01</div>
+            
+            <div class="post-content" v-pre>
+              <p>1.安装<br>
+sudo apt-get install ufw2.启用<br>
+sudo ufw enable<br>
+sudo ufw default deny<br>
+运行以上两条命令后，开启了防火墙，并在系统启动时自动开启。关闭所有外部对本机的访问，但本机访问外部正常。3.开启/禁用<br>
+sudo ufw allow | deny [service]打开或关闭某个端口，例如:<br>
+sudo ufw allow smtp允许所有的外部IP访问本机的25/tcp (smtp)端口sudo ufw allow 22/tcp允许所有的外部IP访问本机的22/tcp (ssh)端口sudo ufw allow 53允许外部访问53端口(tcp/udp)<br>
+sudo ufw allow from 192.168.1.100允许此IP访问所有的本机端口<br>
+4.查看防火墙状态<br>
+sudo ufw status<br>
+5.根据端口删除规则<br>
+先查询规则号:<br>
+sudo ufw status numbered</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://waynesway.github.io/post/n1-bu-shu-xiao-ya-de-docker/">
+                  <h3 class="post-title">
+                    N1部署小雅的docker
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

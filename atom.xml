@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://waynesway.github.io</id>
+    <title>翻过</title>
+    <updated>2024-12-31T06:58:33.215Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://waynesway.github.io"/>
+    <link rel="self" href="https://waynesway.github.io/atom.xml"/>
+    <subtitle>翻过山丘，才发现白了头</subtitle>
+    <logo>https://waynesway.github.io/images/avatar.png</logo>
+    <icon>https://waynesway.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2024, 翻过</rights>
+    <entry>
+        <title type="html"><![CDATA[在 Armbian 上共享 NTFS 硬盘]]></title>
+        <id>https://waynesway.github.io/post/zai-armbian-shang-gong-xiang-ntfs-ying-pan/</id>
+        <link href="https://waynesway.github.io/post/zai-armbian-shang-gong-xiang-ntfs-ying-pan/">
+        </link>
+        <updated>2024-12-31T06:24:56.000Z</updated>
+        <content type="html"><![CDATA[<p>在 Armbian 上共享 NTFS 硬盘可以通过以下步骤实现：</p>
+<p>步骤 1：安装必要的软件包<br>
+更新系统：<br>
+sudo apt update<br>
+sudo apt upgrade<br>
+安装 Samba 和 NTFS 支持：</p>
+<p>sudo apt install samba ntfs-3g<br>
+步骤 2：挂载 NTFS 硬盘</p>
+<p>查找硬盘：<br>
+使用以下命令查找你的 NTFS 硬盘设备：<br>
+sudo fdisk -l<br>
+创建挂载点：</p>
+<p>sudo mkdir /mnt/ntfs_disk<br>
+挂载硬盘：<br>
+假设你的硬盘设备是 /dev/sda1：</p>
+<p>sudo mount -t ntfs-3g /dev/sda1 /mnt/ntfs_disk<br>
+确认挂载：<br>
+使用以下命令确认硬盘已成功挂载：</p>
+<p>df -h<br>
+步骤 3：配置 Samba 共享<br>
+备份 Samba 配置文件：<br>
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.backup<br>
+编辑 Samba 配置文件：</p>
+<p>sudo nano /etc/samba/smb.conf<br>
+在文件末尾添加以下内容：</p>
+<p>[NTFS Disk]<br>
+path = /mnt/ntfs_disk<br>
+writable = yes<br>
+browseable = yes<br>
+guest ok = yes<br>
+read only = no<br>
+重启 Samba 服务：</p>
+<p>sudo systemctl restart smbd<br>
+步骤 4：设置开机自动挂载<br>
+编辑 /etc/fstab 文件：<br>
+sudo nano /etc/fstab<br>
+添加以下行（假设设备为 /dev/sda1）：<br>
+fstab<br>
+/dev/sda1 /mnt/ntfs_disk ntfs-3g defaults,uid=1000,gid=1000,umask=000 0 0<br>
+保存并退出，然后测试 /etc/fstab 设置：<br>
+sudo mount -a<br>
+完成<br>
+现在，你的 NTFS 硬盘已经通过 Samba 共享，其他设备可以通过网络访问它。确保在防火墙设置中允许 Samba 端口（通常是 137、138、139 和 445）。</p>
+<p>我的实际的硬盘的符号是有点变动，下面是修改的内容<br>
+编辑 /etc/fstab 文件：<br>
+使用以下命令编辑 /etc/fstab：<br>
+sudo nano /etc/fstab<br>
+确保将 /dev/sda1 替换为 /dev/sdb1，如下所示：</p>
+<p>/dev/sdb1 /mnt/ntfs_disk ntfs-3g defaults 0 0</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[安卓12黑域弹通知：放入受限存储分区 解决方法]]></title>
+        <id>https://waynesway.github.io/post/an-zhuo-12-hei-yu-dan-tong-zhi-fang-ru-shou-xian-cun-chu-fen-qu-jie-jue-fang-fa/</id>
+        <link href="https://waynesway.github.io/post/an-zhuo-12-hei-yu-dan-tong-zhi-fang-ru-shou-xian-cun-chu-fen-qu-jie-jue-fang-fa/">
+        </link>
+        <updated>2024-12-31T05:34:40.000Z</updated>
+        <content type="html"><![CDATA[<p>安卓12黑域弹通知：放入受限存储分区 解决方法<br>
+修改system/build.prop中的ro.debuggable=1<br>
+将1改成0重启即可</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[摩托罗拉手机刷机顺序]]></title>
+        <id>https://waynesway.github.io/post/mo-tuo-luo-la-shou-ji-shua-ji-shun-xu/</id>
+        <link href="https://waynesway.github.io/post/mo-tuo-luo-la-shou-ji-shua-ji-shun-xu/">
+        </link>
+        <updated>2024-12-31T05:32:12.000Z</updated>
+        <content type="html"><![CDATA[<p>不代表非要按照这个顺序！！</p>
+<p>也不代表100%成功！！</p>
+<p>相关流程造成的可能出现的BUG完全没有测试！！</p>
+<p>0，下载最新国行镜像，解压缩，将tiny解压进去，打开<br>
+0.5，来到刷机界面（bootloader）<br>
+1，刷入AP<br>
+2，刷入BP<br>
+3，清空基带缓存分区<br>
+4，恢复出厂设置<br>
+5，重启<br>
+6，此时设备会无限重启，按住音量下回到bootloader界面<br>
+7，刷入BL<br>
+8，刷入完整固件并清除数据（tiny的5）（不清楚这一步是否必须）</p>
+<p>然后重启就会是国行了</p>
+<p>祝大家有个愉快的刷机体x验。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Linux安装Syncthing步骤]]></title>
+        <id>https://waynesway.github.io/post/linux-an-zhuang-syncthing-bu-zou/</id>
+        <link href="https://waynesway.github.io/post/linux-an-zhuang-syncthing-bu-zou/">
+        </link>
+        <updated>2024-04-22T03:10:11.000Z</updated>
+        <content type="html"><![CDATA[<p>cd /tmp<br>
+wget https://github.com/syncthing/syncthing/releases/download/v1.27.6/syncthing-linux-amd64-v1.27.6.tar.gz</p>
+<p>tar xzvf syncthing-linux-amd64-v1.27.6.tar.gz</p>
+<p>cd syncthing-linux-amd64-v1.27.6</p>
+<p>cp syncthing /usr/local/bin<br>
+然后直接运行syncthing</p>
+<p>停止，我的配置文件是在/root/.local/state/syncthing/config.xml<br>
+初次运行syncthing会在当前用户的用户目录下生成配置文件，比如现在使用的是root用户：</p>
+<p>vim /root/.local/state/syncthing/config.xml<br>
+大概在第72行找到</p>
+<address>127.0.0.1:8384</address>
+改成
+<address>0.0.0.0:8384</address>
+之后重启syncthing
+<p>syncthing<br>
+现在通过浏览器访问服务器IP地址就可以看到syncthing了：IP:8384</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Alist套娃挂载小雅]]></title>
+        <id>https://waynesway.github.io/post/alist-tao-wa-gua-zai-xiao-ya/</id>
+        <link href="https://waynesway.github.io/post/alist-tao-wa-gua-zai-xiao-ya/">
+        </link>
+        <updated>2024-03-29T03:43:08.000Z</updated>
+        <content type="html"><![CDATA[<p>不折腾会死星人。<br>
+前段时间把小雅更新了下，总算是可以正常使用了。但是突然冒出的想法，想要把小雅挂载到alist上面。<br>
+嗯，百度谷歌了一下，发现跟我一样闲得蛋疼的人不少。从什么值得买的一个教程上按步骤更新了下我的alist，按v3模式挂载的，但是总是提示Failed init storage: the site does not allow mounted。<br>
+找了下在issue下面找到了答案。填写挂载的令牌就行。 方法如下<br>
+执行下面神秘的代码，你就能获取token</p>
+<p>docker exec -i xiaoya sqlite3 data/data.db &lt;&lt;EOF<br>
+select value from x_setting_items where key = &quot;token&quot;;<br>
+EOF</p>
+<p>把获取的token填入“令牌”处，把用户名和密码留空<br>
+<img src="https://telegraph-image-el2.pages.dev/file/5a008c912b760d05a4216.png" alt="my" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[第一把玩具枪 ]]></title>
+        <id>https://waynesway.github.io/post/di-yi-ba-wan-ju-qiang/</id>
+        <link href="https://waynesway.github.io/post/di-yi-ba-wan-ju-qiang/">
+        </link>
+        <updated>2024-03-25T03:58:24.000Z</updated>
+        <content type="html"><![CDATA[<p>自己的第一个玩具手枪是什么样子到现在还记得，那是个棕红色枪身的长的步枪。装填6mm塑料弹。是过年的时候用压岁钱买的，刚买的时候很是喜欢，几乎就是抱着不离手。劲儿也不小，那会小自己都要费很大的劲儿才能压上子弹。我的枪法不怎么样，当然玩具枪也没什么准度。爱不离手，晚上都是把它藏在大衣柜里面。怎么坏的也记得清清楚楚，原因就是塑料的承受能力到了极限。我前一天晚上睡觉前压上的劲儿忘了放了，结果第二天早上扳机的地方由于承受不了那么就的压力第一枪就坏掉了。<br>
+坏了的玩具枪被我给拆开了，还不错学到点东西，爸爸说里面的设计跟真枪几乎一样。有弹道，枪膛等等。心疼啊，那会记得花了不少钱呢。</p>
+<p>后来我也买过许许多多各种各样的枪，但只有这第一把记忆留得比较深，不用深想就能够回忆起来。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[红月亮 ]]></title>
+        <id>https://waynesway.github.io/post/hong-yue-liang/</id>
+        <link href="https://waynesway.github.io/post/hong-yue-liang/">
+        </link>
+        <updated>2024-03-25T03:54:42.000Z</updated>
+        <content type="html"><![CDATA[<p>据说前几天月食来着，我也是当天白天的时候就听说有这件事了。白天逛西贝的时候看到的。可是由于后来无意中浏览另一网站时候发现两者说的时间不同,一个说八点多开始，另一个说十二点开始。于是终于晚上玩游戏把所有的时间都忘记了。直到第二天看别人的碎碎念才想起来昨天原来月食来着.</p>
+<p>我记得小时候第一次看类似的天文奇观是日食.那会兴奋的不行，老早就起来，等着日出,等着看日食.那会电视上也说了，看日食的时候最好准备盆蜜水,那会哪管的了这些，只是睁大了双眼直勾勾的望着,不管刺的有多疼。再后来是流星雨,凌晨两点,定好了闹铃爬起来,批上毛毯就跑出去看星星了。</p>
+<p>随着年龄增长那份好奇心也一点点的消失了.好奇心是人进取的动力。<br>
+看了个段子,普通青年为了像文艺青年学习，半夜出去看月食,结果冻成了二逼青年.<br>
+我在想二逼青年也比像我这样的麻木青年要好.从今天开始我要准备好看红月亮,红太阳,或者转瞬的流星雨.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[关于efb-wechat-slave频繁登出的问题]]></title>
+        <id>https://waynesway.github.io/post/guan-yu-efb-wechat-slave-pin-fan-deng-chu-de-wen-ti/</id>
+        <link href="https://waynesway.github.io/post/guan-yu-efb-wechat-slave-pin-fan-deng-chu-de-wen-ti/">
+        </link>
+        <updated>2024-03-05T08:08:45.000Z</updated>
+        <content type="html"><![CDATA[<p>最近龟壳搭建的微信转发的机器人一直把我踢掉线。感觉微信肯定是做手脚了。<br>
+一直稳定的快运行两年了。本来打算放弃了。但是无意间看到项目的github地址。翻了翻issue，大家原来遇到一样的问题。<br>
+有个热心网友给出了解决的办法。<br>
+“方法是修改<br>
+efb_wechat_slave/vendor/itchat/components/login.py:360<br>
+把 e.args[0].args[1]修改为e.args[0].reason.args[1]”</p>
+<p>嗯就是这简单的一句话，作为小白的我就得理解半天。好在我有gpt。<br>
+使用终端或命令提示符导航到 efb-wechat-slave 软件包的安装目录。你可以使用以下命令：<br>
+Linux 和 macOS：<br>
+pip3 show efb-wechat-slave</p>
+<p>运行这个命令之后会显示出这个python文件的安装位置。cd 定位到这个地方然后，再 cd vendor/itchat/components<br>
+Nano login.py. F6 定位到要修改的位置。按网友操作提示修改对应的值。然后就行了</p>
+<p>修改后问题消失了。嗯，又可以再用一段时间了。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[小时只识笑，如今已成剧中人]]></title>
+        <id>https://waynesway.github.io/post/xiao-shi-zhi-shi-xiao-ru-jin-yi-cheng-ju-zhong-ren/</id>
+        <link href="https://waynesway.github.io/post/xiao-shi-zhi-shi-xiao-ru-jin-yi-cheng-ju-zhong-ren/">
+        </link>
+        <updated>2024-03-04T06:55:51.000Z</updated>
+        <content type="html"><![CDATA[<p>高中微信同学群，因为有个同学加进来热闹了一天，就又归于沉寂了。</p>
+<p>怀旧，说说现在的情况，主题大概就是这些个主题吧。一圈下来感觉自己真的是搭不上话，因为谈的最好的几个同学也有8，9年不怎么联系了。我自己的性格使然吧。凉薄，自卑，沉溺于自己的世界中比较多。</p>
+<p>同学好几个都是律师了，也有公务员的，还有定居海外的，发言的都有着不错的工作。想了想自己这几年真的是没有什么实质性的建设了。除了年龄上的增加别的真的是没有增加多少了。<br>
+看着发的之前的照片，我甚至好几个都快叫不上名字了。<br>
+感慨很多，之前我爱我家的一集，贾志国参加完同学聚会，各种脑洞大开的折腾，从绿化带偷树桩，那会真的是笑的很开心，现在想，我已经成了贾志国。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[焦虑的梦]]></title>
+        <id>https://waynesway.github.io/post/jiao-lu-de-meng/</id>
+        <link href="https://waynesway.github.io/post/jiao-lu-de-meng/">
+        </link>
+        <updated>2024-02-28T02:52:13.000Z</updated>
+        <content type="html"><![CDATA[<p>睁开眼睛，记录下昨天晚上做的恶梦。</p>
+<p>梦很简单，所以睁开眼还没有忘记。主要内容是我帮朋友打印不干胶贴的事。因为要赶时间，所以我必须要在所有人来之前打出来。这对于平常的我来说太简单了。简单设置一下就行了。可是不知道为什么我折腾了很长时间，状况百出，不是格式错误就是标签纸错误。终于我还是在所有人到来之前没有完成打印不干胶贴的任务。来了之后大家没有责怪什么，表示不着急可以慢慢来等着我。但是这并没有任何帮助，更加剧了我的焦虑。甚至打印的时候都找不到文件了。梦感觉是持续了一整晚。</p>
+<p>主要就是焦虑。这几天回顾了下自己工作相关的表现和业绩带来的焦虑。不干胶贴纸是我工作中经常用到的工具，映射了自己这几天的想法。一直没有打出来的标签则是自己的期望，中年焦虑。</p>
+<p>时间还有，整理下自己准备好，把自己能做的做好，机会是留给有准备的人的。抱怨害怕退缩，停滞不前解决不了任何问题。</p>
+]]></content>
+    </entry>
+</feed>

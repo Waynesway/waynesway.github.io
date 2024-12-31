@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>在 Armbian 上共享 NTFS 硬盘 | 翻过</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://waynesway.github.io/favicon.ico?v=1735628311042">
+<link rel="stylesheet" href="https://waynesway.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2NXHCQ3G7R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2NXHCQ3G7R');
+</script>
+
+
+    <meta name="description" content="在 Armbian 上共享 NTFS 硬盘可以通过以下步骤实现：
+步骤 1：安装必要的软件包
+更新系统：
+sudo apt update
+sudo apt upgrade
+安装 Samba 和 NTFS 支持：
+sudo apt insta..." />
+    <meta name="keywords" content="Armbian" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://waynesway.github.io">
+        <img src="https://waynesway.github.io/images/avatar.png?v=1735628311042" class="site-logo">
+        <h1 class="site-title">翻过</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      翻过山丘，才发现白了头
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://waynesway.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">在 Armbian 上共享 NTFS 硬盘</h2>
+            <div class="post-date">2024-12-31</div>
+            
+            <div class="post-content" v-pre>
+              <p>在 Armbian 上共享 NTFS 硬盘可以通过以下步骤实现：</p>
+<p>步骤 1：安装必要的软件包<br>
+更新系统：<br>
+sudo apt update<br>
+sudo apt upgrade<br>
+安装 Samba 和 NTFS 支持：</p>
+<p>sudo apt install samba ntfs-3g<br>
+步骤 2：挂载 NTFS 硬盘</p>
+<p>查找硬盘：<br>
+使用以下命令查找你的 NTFS 硬盘设备：<br>
+sudo fdisk -l<br>
+创建挂载点：</p>
+<p>sudo mkdir /mnt/ntfs_disk<br>
+挂载硬盘：<br>
+假设你的硬盘设备是 /dev/sda1：</p>
+<p>sudo mount -t ntfs-3g /dev/sda1 /mnt/ntfs_disk<br>
+确认挂载：<br>
+使用以下命令确认硬盘已成功挂载：</p>
+<p>df -h<br>
+步骤 3：配置 Samba 共享<br>
+备份 Samba 配置文件：<br>
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.backup<br>
+编辑 Samba 配置文件：</p>
+<p>sudo nano /etc/samba/smb.conf<br>
+在文件末尾添加以下内容：</p>
+<p>[NTFS Disk]<br>
+path = /mnt/ntfs_disk<br>
+writable = yes<br>
+browseable = yes<br>
+guest ok = yes<br>
+read only = no<br>
+重启 Samba 服务：</p>
+<p>sudo systemctl restart smbd<br>
+步骤 4：设置开机自动挂载<br>
+编辑 /etc/fstab 文件：<br>
+sudo nano /etc/fstab<br>
+添加以下行（假设设备为 /dev/sda1）：<br>
+fstab<br>
+/dev/sda1 /mnt/ntfs_disk ntfs-3g defaults,uid=1000,gid=1000,umask=000 0 0<br>
+保存并退出，然后测试 /etc/fstab 设置：<br>
+sudo mount -a<br>
+完成<br>
+现在，你的 NTFS 硬盘已经通过 Samba 共享，其他设备可以通过网络访问它。确保在防火墙设置中允许 Samba 端口（通常是 137、138、139 和 445）。</p>
+<p>我的实际的硬盘的符号是有点变动，下面是修改的内容<br>
+编辑 /etc/fstab 文件：<br>
+使用以下命令编辑 /etc/fstab：<br>
+sudo nano /etc/fstab<br>
+确保将 /dev/sda1 替换为 /dev/sdb1，如下所示：</p>
+<p>/dev/sdb1 /mnt/ntfs_disk ntfs-3g defaults 0 0</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://waynesway.github.io/tag/HE0_guZ6bz/" class="tag">
+                    Armbian
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://waynesway.github.io/post/an-zhuo-12-hei-yu-dan-tong-zhi-fang-ru-shou-xian-cun-chu-fen-qu-jie-jue-fang-fa/">
+                  <h3 class="post-title">
+                    安卓12黑域弹通知：放入受限存储分区 解决方法
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

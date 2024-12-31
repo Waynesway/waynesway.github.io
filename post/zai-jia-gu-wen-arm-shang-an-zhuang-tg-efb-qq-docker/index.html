@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>在甲骨文arm上安装TG-EFB-QQ-Docker | 翻过</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://waynesway.github.io/favicon.ico?v=1735628311042">
+<link rel="stylesheet" href="https://waynesway.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2NXHCQ3G7R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2NXHCQ3G7R');
+</script>
+
+
+    <meta name="description" content="自己有个韩国的龟壳，里面开了三个jj。其中两个amd，一个arm。一个amd已经挂了些网站。另一个amd 挂了efb机器人专门转发微信的。闲置了一个arm所以打算把这个也利用起来。
+想把自己的qq也转发起来。
+之前有操作过微信的项目。全是手..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://waynesway.github.io">
+        <img src="https://waynesway.github.io/images/avatar.png?v=1735628311042" class="site-logo">
+        <h1 class="site-title">翻过</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      翻过山丘，才发现白了头
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://waynesway.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">在甲骨文arm上安装TG-EFB-QQ-Docker</h2>
+            <div class="post-date">2023-08-02</div>
+            
+            <div class="post-content" v-pre>
+              <p>自己有个韩国的龟壳，里面开了三个jj。其中两个amd，一个arm。一个amd已经挂了些网站。另一个amd 挂了efb机器人专门转发微信的。闲置了一个arm所以打算把这个也利用起来。</p>
+<p>想把自己的qq也转发起来。<br>
+之前有操作过微信的项目。全是手工操作的，觉得应该不难。于是找了下发现这个有个docker的项目，难度更低了一些。<br>
+https://github.com/sakarie9/TG-EFB-QQ-Docker</p>
+<p>话不多说开整。<br>
+先遇到的问题是arm版本的docker-compose版本过低，需要更新，下面是求助gpt之后的操作命令</p>
+<p>首先，检查当前安装的 Docker Compose 版本。在命令行中运行以下命令：</p>
+<p>docker-compose --version<br>
+下载新版本的 Docker Compose。请前往 Docker Compose 的官方 GitHub 页面（https://github.com/docker/compose/releases）或 Docker 官方文档，查找最新的版本。</p>
+<p>下载适用于您的操作系统的二进制文件。根据您的操作系统（Windows、macOS 或 Linux）选择对应的下载链接。</p>
+<p>在 Linux 系统中，您可能需要将下载的二进制文件移动到 /usr/local/bin/ 目录，并赋予执行权限。可以使用以下命令完成：</p>
+<p>sudo mv /path/to/downloaded/docker-compose /usr/local/bin/docker-compose<br>
+sudo chmod +x /usr/local/bin/docker-compose</p>
+<p>更新完docker之后可以运行了，下一步到了登录qq这一步了。我开始用的密码登录，不行一直提示报错，于是删掉密码开始尝试扫码登录。但是一直提示不能登录。偷懒少了一步生成device.json这一步。于是停止docker，按教程生成了下device.json. 但是还是提示不支持扫码协议。百度下看了下别人的经验。原来device.json里面的protocol,改成2，改成2之后登录上号就是手表了，只用扫一次码就可以，以后都可以自己登录了。改完之后很激动，终于出来二维码了。但是手机扫码后提示二维码不可用。<br>
+又搜索了下，发现提示最好手机设备也在统一网段，打开科学方式在同一个节点下终于登陆进来了。</p>
+<p>这篇流水账是记录下自己踩得坑。感谢做成docker的作者，节省了大部分的部署操作命令。</p>
+<p>下面是Wechat docker 的一些相关的网站。<br>
+我主要用的是这个网址<br>
+https://github.com/Mikubill/efb-wechat-docker<br>
+需要注意的是这个的python版本需要指定一下。需要手动修改下docker file.</p>
+<p>时间长了，就会有报错登出的毛病，这个的解决方法也参考之前的那个，需要手动删除一个文件，<br>
+rm -f .ehforwarderbot/profiles/default/blueset.wechat/wxpy.pkl<br>
+这个不是在docker 环境下的，但是是一样的。<br>
+docker exec -it docker名称 /bin/sh</p>
+<p>进去之后ls下找到对应的文件删除就行了。</p>
+<p>https://hub.docker.com/r/scavin/docker-efbv2/<br>
+https://github.com/ehForwarderBot/ehForwarderBot/wiki/Modules-Repository#scripts-and-containers-eg-docker</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://waynesway.github.io/post/zai-openwrt-qi-dong-wan-cheng-hou-qi-dong-mosdns/">
+                  <h3 class="post-title">
+                    在openwrt启动完成后启动Mosdns
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

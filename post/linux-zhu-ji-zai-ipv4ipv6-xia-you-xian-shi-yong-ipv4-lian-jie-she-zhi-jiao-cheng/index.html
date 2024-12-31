@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Linux 主机在IPV4/IPV6下，优先使用IPV4链接设置教程 | 翻过</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://waynesway.github.io/favicon.ico?v=1735628311042">
+<link rel="stylesheet" href="https://waynesway.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2NXHCQ3G7R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2NXHCQ3G7R');
+</script>
+
+
+    <meta name="description" content="本人有阿三webhorizon的nat小鸡。科学使用时候搭配cf，觉得ipv6有那么一点点的延迟。虽说都nat了，还是觉得那一点延迟难受。于是网上找到了如下教程禁用ipv6，搭配公用的ipv4出口感觉浏览大部分网站还是有那么一丢丢快的。
+1..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://waynesway.github.io">
+        <img src="https://waynesway.github.io/images/avatar.png?v=1735628311042" class="site-logo">
+        <h1 class="site-title">翻过</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      翻过山丘，才发现白了头
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://waynesway.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Linux 主机在IPV4/IPV6下，优先使用IPV4链接设置教程</h2>
+            <div class="post-date">2023-02-03</div>
+            
+            <div class="post-content" v-pre>
+              <p>本人有阿三webhorizon的nat小鸡。科学使用时候搭配cf，觉得ipv6有那么一点点的延迟。虽说都nat了，还是觉得那一点延迟难受。于是网上找到了如下教程禁用ipv6，搭配公用的ipv4出口感觉浏览大部分网站还是有那么一丢丢快的。</p>
+<p>1、如果要使用ipv4连接优先也不禁用ipv6，需要修改gai.conf配置文件使其生效。<br>
+编辑 /etc/gai.conf 文件，查找 precedence ::ffff:0:0/96 100 将前面的注释 # 去掉并保存，如果前面没有 # 号表示已经更改过设置了。如果没有查找到该行直接在文件末尾添加上</p>
+<p>precedence ::ffff:0:0/96 100<br>
+CentOS默认没有 /etc/gai.conf 该文件，可以执行命令</p>
+<p>cp -p /usr/share/doc/glibc-common-2.17/gai.conf /etc/<br>
+拷贝该文件后修改。</p>
+<p>修改完成保存生效。这样设置后有IPv4的话优先使用IPv4，也不影响IPv6的使用。</p>
+<p>注：::ffff:0:0/96 为IPv4/IPv6转换地址 (IPv4-mapped IPv6 address)。</p>
+<p>2、如果确实不需要IPv6，我们可以禁用IPv6<br>
+执行命令：echo &quot;1&quot; &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6<br>
+这样就掉了禁用ipv6，如需恢复的话删除掉 /proc/sys/net/ipv6/conf/all/disable_ipv6 这个文件就可以。</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://waynesway.github.io/post/di-yi-pian/">
+                  <h3 class="post-title">
+                    第一篇
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

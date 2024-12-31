@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>在openwrt启动完成后启动Mosdns | 翻过</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://waynesway.github.io/favicon.ico?v=1735628311042">
+<link rel="stylesheet" href="https://waynesway.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2NXHCQ3G7R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2NXHCQ3G7R');
+</script>
+
+
+    <meta name="description" content="要在 OpenWrt 启动完成后自动启动 Mosdns，你可以按照以下步骤进行操作：
+在 OpenWrt 上创建一个启动脚本。可以使用以下命令创建一个新的启动脚本文件（例如 mosdns.sh）：
+bash
+vi /etc/init.d/m..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://waynesway.github.io">
+        <img src="https://waynesway.github.io/images/avatar.png?v=1735628311042" class="site-logo">
+        <h1 class="site-title">翻过</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      翻过山丘，才发现白了头
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://waynesway.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">在openwrt启动完成后启动Mosdns</h2>
+            <div class="post-date">2023-07-06</div>
+            
+            <div class="post-content" v-pre>
+              <p>要在 OpenWrt 启动完成后自动启动 Mosdns，你可以按照以下步骤进行操作：</p>
+<p>在 OpenWrt 上创建一个启动脚本。可以使用以下命令创建一个新的启动脚本文件（例如 mosdns.sh）：</p>
+<p>bash</p>
+<p>vi /etc/init.d/mosdns.sh<br>
+在编辑器中打开 mosdns.sh 文件并添加以下内容：</p>
+<p>bash</p>
+<p>#!/bin/sh /etc/rc.common</p>
+<p>START=99<br>
+USE_PROCD=1</p>
+<p>start_service() {<br>
+procd_open_instance<br>
+procd_set_param command /usr/bin/mosdns start -c /usr/bin/Mosdns/config.yaml<br>
+procd_set_param respawn<br>
+procd_set_param stdout 1<br>
+procd_set_param stderr 1<br>
+procd_close_instance<br>
+}</p>
+<p>stop_service() {<br>
+procd_close_instance<br>
+}</p>
+<p>reload_service() {<br>
+procd_send_signal mosdns<br>
+}</p>
+<p>service_triggers() {<br>
+procd_add_reload_trigger &quot;mosdns&quot;<br>
+}</p>
+<p>start_service<br>
+注意替换 /usr/bin/Mosdns/config.yaml 为你的 Mosdns 配置文件的实际路径。</p>
+<p>保存并关闭文件。</p>
+<p>授权脚本文件可执行权限：</p>
+<p>bash</p>
+<p>chmod +x /etc/init.d/mosdns.sh<br>
+启用启动脚本：</p>
+<p>bash</p>
+<p>/etc/init.d/mosdns.sh enable<br>
+重新启动 OpenWrt，Mosdns 应该会在启动完成后自动启动。</p>
+<p>这样，每次 OpenWrt 启动完成后，Mosdns 将会自动运行。你可以使用以下命令来检查 Mosdns 是否正在运行：</p>
+<p>bash</p>
+<p>ps aux | grep mosdns<br>
+你应该能够看到 Mosdns 的进程信息。</p>
+<p>这将会在系统启动时自动启动 mosdns 服务。你可以使用以下命令手动启动或停止服务：</p>
+<p>bash</p>
+<p>/etc/init.d/mosdns start  # 启动服务<br>
+/etc/init.d/mosdns stop   # 停止服务<br>
+你也可以使用以下命令来检查服务的状态：</p>
+<p>bash</p>
+<p>/etc/init.d/mosdns status  # 查看服务状态</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://waynesway.github.io/post/da-meng-ge-ci/">
+                  <h3 class="post-title">
+                    大梦歌词
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
