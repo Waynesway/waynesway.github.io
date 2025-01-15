@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://waynesway.github.io</id>
+    <title>翻过</title>
+    <updated>2025-01-15T08:48:22.844Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://waynesway.github.io"/>
+    <link rel="self" href="https://waynesway.github.io/atom.xml"/>
+    <subtitle>翻过山丘，才发现白了头</subtitle>
+    <logo>https://waynesway.github.io/images/avatar.png</logo>
+    <icon>https://waynesway.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2025, 翻过</rights>
+    <entry>
+        <title type="html"><![CDATA[哪吒探针v0 arm设备安装]]></title>
+        <id>https://waynesway.github.io/post/na-zha-tan-zhen-v0-arm-she-bei-an-zhuang/</id>
+        <link href="https://waynesway.github.io/post/na-zha-tan-zhen-v0-arm-she-bei-an-zhuang/">
+        </link>
+        <updated>2025-01-15T08:20:00.000Z</updated>
+        <content type="html"><![CDATA[<p>用的版本号是v0.20.5<br>
+https://github.com/nezhahq/agent/releases/download/v0.20.5/nezha-agent_linux_arm64.zip</p>
+<p>使用 Agent 内置服务命令安装（支持主流系统）<br>
+点击展开/收起<br>
+首先获取 Agent 的二进制文件：https://github.com/nezhahq/agent/releases</p>
+<p>解压后输入以下命令安装服务（可能需要 root 权限）：</p>
+<p>bash<br>
+./nezha-agent service install -s server_name:port -p password<br>
+除了服务器地址和密码，还可以添加其它支持的参数。具体参考自定义 Agent 监控项目</p>
+<p>卸载服务：</p>
+<p>bash<br>
+./nezha-agent service uninstall<br>
+启动服务：</p>
+<p>bash<br>
+./nezha-agent service start<br>
+停止服务：</p>
+<p>bash<br>
+./nezha-agent service stop<br>
+重启服务：</p>
+<p>bash<br>
+./nezha-agent service restart</p>
+<p>github仓库 https://github.com/nezhahq/nezhahq.github.io/tree/v0<br>
+互联网档案馆 https://web.archive.org/web/20240929125721/https://nezha.wiki/guide/dashboard.html</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[法国星尘注册Scaleway星辰]]></title>
+        <id>https://waynesway.github.io/post/fa-guo-xing-chen-zhu-ce-scaleway-xing-chen/</id>
+        <link href="https://waynesway.github.io/post/fa-guo-xing-chen-zhu-ce-scaleway-xing-chen/">
+        </link>
+        <updated>2025-01-10T08:49:07.000Z</updated>
+        <content type="html"><![CDATA[<p>这个是在法国星尘上面建立Alpine的步骤。原来在上面建了一个，但是后来不知道什么原因登录不上去ssh了。<br>
+FR/NL/PL STARDUST1-S Alpine IPv6 1C/1G/1G/∞@100Mbps - €0.15/m<br>
+设置SSH key：右上角头像，SSH keys，创建<br>
+创建实例：右上角点CLI，根据想开的区域，手搓输入以下命令<br>
+法国：scw instance server create zone=fr-par-1 root-volume=local:10GB<br>
+name=fr type=STARDUST1-S ipv6=true ip=none<br>
+荷兰：scw instance server create zone=nl-ams-1 root-volume=local:10GB<br>
+name=nl type=STARDUST1-S ipv6=true ip=none<br>
+波兰：scw instance server create zone=pl-waw-2 root-volume=local:10GB<br>
+name=pl type=STARDUST1-S ipv6=true ip=none<br>
+返回服务器信息表示手搓正确，返回各种乱七八糟参数表示手抖出错重来<br>
+成功后注意检查机器的配置，遗漏type=STARDUST1-S参数将会开出大鸡，经费燃烧<br>
+添加ipv6地址：左侧Instances，点击Attach flexible IP，创建免费ipv6<br>
+添加防火墙规则：左侧Instances，Security group选项卡，进入，Rules选项卡，右侧编<br>
+辑，添加所有协议的入栈出栈Accept规则<br>
+面板关机：左侧Instances，点击新创建的实例进入实例管理面板，关闭右上角开关，面板<br>
+关机<br>
+解绑10GB硬盘：实例管理面板，Attached volumes选项卡，在硬盘右侧三个点选Detach解<br>
+绑<br>
+删除10GB硬盘：左侧Instances，Volumes选项卡，旧10GB硬盘右侧三个点选Delete删除<br>
+创建1GB本地硬盘：回到实例管理面板，Attached volumes选项卡，Create Volume创建<br>
+Local Storage，大小1GB<br>
+进入救援系统：实例管理面板，Advanced settings选项卡，选中Use rescue image，保<br>
+存，右上角开机，开机后需耐心等待10分钟<br>
+连接ssh（用创建的key），执行命令<br>
+parted /dev/vda mklabel gpt<br>
+wget -qO- https://dlcdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-virt-3.20.1-<br>
+x86_64.iso | dd of=/dev/vda<br>
+面板关机（poweroff关机会出bug，不出意外立损€0.01）<br>
+更改硬盘启动：实例管理面板，Advanced settings选项卡，选中Use local boot，保存，<br>
+Boot volume选择1GB硬盘，保存，开机<br>
+实例管理面板，右上角进入Console，root登录<br>
+安装系统前置操作<br>
+mkdir /media/setup cp -a /media/vda/* /media/setup mkdir /lib/setup cp -a<br>
+/.modloop/* /lib/setup /etc/init.d/modloop stop umount /dev/vda mv<br>
+/media/setup/* /media/vda/ mv /lib/setup/* /.modloop/<br>
+安装Alpine<br>
+setup-alpine<br>
+第一问，输入主机名<br>
+2/3<br>
+第二问，done<br>
+第三问，y，i进入编辑，输入以下内容，其中ipv6和网关在实例管理面板里有，编辑完成按<br>
+esc，输入:qw回车保存<br>
+auto lo iface lo inet loopback auto eth0 iface eth0 inet dhcp iface eth0<br>
+inet6 static address 你的ipv6 netmask 64 gateway 你的ipv6网关<br>
+第四问，新建root密码<br>
+第五问，输入时区，巴黎Europe/Paris，阿姆斯特丹Europe/Amsterdam，华沙<br>
+Europe/Warsaw<br>
+第六问，none<br>
+第七问，skip<br>
+第八问，no<br>
+第九问，openssh<br>
+第十问，yes<br>
+第十一问，none<br>
+第十二问，vda<br>
+第十三问，sys</p>
+<ol>
+<li>报错后<br>
+vi /etc/resolv.conf<br>
+输入以下内容并保存<br>
+nameserver 20014860::6464<br>
+输入命令启用官方源<br>
+echo &quot;http://dl-cdn.alpinelinux.org/alpine/latest-stable/main&quot; &gt;&gt;<br>
+/etc/apk/repositories echo &quot;http://dl-cdn.alpinelinux.org/alpine/lateststable/community&quot; &gt;&gt; /etc/apk/repositories echo &quot;#http://dlcdn.alpinelinux.org/alpine/edge/main&quot; &gt;&gt; /etc/apk/repositories echo<br>
+&quot;#http://dl-cdn.alpinelinux.org/alpine/edge/community&quot; &gt;&gt;<br>
+/etc/apk/repositories echo &quot;#http://dlcdn.alpinelinux.org/alpine/edge/testing&quot; &gt;&gt; /etc/apk/repositories<br>
+安装启动项<br>
+apk update<br>
+apk add dosfstools<br>
+apk add grub-efi<br>
+关闭swap<br>
+setup-disk -s 0<br>
+第一问，vda<br>
+第二问，sys<br>
+第三问，y</li>
+<li>reboot重启</li>
+<li>安装常用项<br>
+apk add sudo curl wget bash tar unzip</li>
+<li>修改ssh端口<br>
+3/3<br>
+vi /etc/ssh/sshd_config<br>
+找到#Port 22行，去掉#，改成想要的端口号，保存<br>
+rc-service sshd restart<br>
+开启warp，注：fr给美国IP，nl给法国IP，pl给波兰IP<br>
+wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh<br>
+4<br>
+开启bbr<br>
+modprobe tcp_bbr echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf echo<br>
+&quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf sysctl -p<br>
+reboot重启<br>
+验证：<br>
+lsmod | grep bbr<br>
+出现以下内容表示成功：<br>
+tcp_bbr</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[在 Armbian 上共享 NTFS 硬盘]]></title>
+        <id>https://waynesway.github.io/post/zai-armbian-shang-gong-xiang-ntfs-ying-pan/</id>
+        <link href="https://waynesway.github.io/post/zai-armbian-shang-gong-xiang-ntfs-ying-pan/">
+        </link>
+        <updated>2024-12-31T06:24:56.000Z</updated>
+        <content type="html"><![CDATA[<p>在 Armbian 上共享 NTFS 硬盘可以通过以下步骤实现：</p>
+<p>步骤 1：安装必要的软件包<br>
+更新系统：<br>
+sudo apt update<br>
+sudo apt upgrade<br>
+安装 Samba 和 NTFS 支持：</p>
+<p>sudo apt install samba ntfs-3g<br>
+步骤 2：挂载 NTFS 硬盘</p>
+<p>查找硬盘：<br>
+使用以下命令查找你的 NTFS 硬盘设备：<br>
+sudo fdisk -l<br>
+创建挂载点：</p>
+<p>sudo mkdir /mnt/ntfs_disk<br>
+挂载硬盘：<br>
+假设你的硬盘设备是 /dev/sda1：</p>
+<p>sudo mount -t ntfs-3g /dev/sda1 /mnt/ntfs_disk<br>
+确认挂载：<br>
+使用以下命令确认硬盘已成功挂载：</p>
+<p>df -h<br>
+步骤 3：配置 Samba 共享<br>
+备份 Samba 配置文件：<br>
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.backup<br>
+编辑 Samba 配置文件：</p>
+<p>sudo nano /etc/samba/smb.conf<br>
+在文件末尾添加以下内容：</p>
+<p>[NTFS Disk]<br>
+path = /mnt/ntfs_disk<br>
+writable = yes<br>
+browseable = yes<br>
+guest ok = yes<br>
+read only = no<br>
+重启 Samba 服务：</p>
+<p>sudo systemctl restart smbd<br>
+步骤 4：设置开机自动挂载<br>
+编辑 /etc/fstab 文件：<br>
+sudo nano /etc/fstab<br>
+添加以下行（假设设备为 /dev/sda1）：<br>
+fstab<br>
+/dev/sda1 /mnt/ntfs_disk ntfs-3g defaults,uid=1000,gid=1000,umask=000 0 0<br>
+保存并退出，然后测试 /etc/fstab 设置：<br>
+sudo mount -a<br>
+完成<br>
+现在，你的 NTFS 硬盘已经通过 Samba 共享，其他设备可以通过网络访问它。确保在防火墙设置中允许 Samba 端口（通常是 137、138、139 和 445）。</p>
+<p>我的实际的硬盘的符号是有点变动，下面是修改的内容<br>
+编辑 /etc/fstab 文件：<br>
+使用以下命令编辑 /etc/fstab：<br>
+sudo nano /etc/fstab<br>
+确保将 /dev/sda1 替换为 /dev/sdb1，如下所示：</p>
+<p>/dev/sdb1 /mnt/ntfs_disk ntfs-3g defaults 0 0</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[安卓12黑域弹通知：放入受限存储分区 解决方法]]></title>
+        <id>https://waynesway.github.io/post/an-zhuo-12-hei-yu-dan-tong-zhi-fang-ru-shou-xian-cun-chu-fen-qu-jie-jue-fang-fa/</id>
+        <link href="https://waynesway.github.io/post/an-zhuo-12-hei-yu-dan-tong-zhi-fang-ru-shou-xian-cun-chu-fen-qu-jie-jue-fang-fa/">
+        </link>
+        <updated>2024-12-31T05:34:40.000Z</updated>
+        <content type="html"><![CDATA[<p>安卓12黑域弹通知：放入受限存储分区 解决方法<br>
+修改system/build.prop中的ro.debuggable=1<br>
+将1改成0重启即可</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[摩托罗拉手机刷机顺序]]></title>
+        <id>https://waynesway.github.io/post/mo-tuo-luo-la-shou-ji-shua-ji-shun-xu/</id>
+        <link href="https://waynesway.github.io/post/mo-tuo-luo-la-shou-ji-shua-ji-shun-xu/">
+        </link>
+        <updated>2024-12-31T05:32:12.000Z</updated>
+        <content type="html"><![CDATA[<p>不代表非要按照这个顺序！！</p>
+<p>也不代表100%成功！！</p>
+<p>相关流程造成的可能出现的BUG完全没有测试！！</p>
+<p>0，下载最新国行镜像，解压缩，将tiny解压进去，打开<br>
+0.5，来到刷机界面（bootloader）<br>
+1，刷入AP<br>
+2，刷入BP<br>
+3，清空基带缓存分区<br>
+4，恢复出厂设置<br>
+5，重启<br>
+6，此时设备会无限重启，按住音量下回到bootloader界面<br>
+7，刷入BL<br>
+8，刷入完整固件并清除数据（tiny的5）（不清楚这一步是否必须）</p>
+<p>然后重启就会是国行了</p>
+<p>祝大家有个愉快的刷机体x验。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Linux安装Syncthing步骤]]></title>
+        <id>https://waynesway.github.io/post/linux-an-zhuang-syncthing-bu-zou/</id>
+        <link href="https://waynesway.github.io/post/linux-an-zhuang-syncthing-bu-zou/">
+        </link>
+        <updated>2024-04-22T03:10:11.000Z</updated>
+        <content type="html"><![CDATA[<p>cd /tmp<br>
+wget https://github.com/syncthing/syncthing/releases/download/v1.27.6/syncthing-linux-amd64-v1.27.6.tar.gz</p>
+<p>tar xzvf syncthing-linux-amd64-v1.27.6.tar.gz</p>
+<p>cd syncthing-linux-amd64-v1.27.6</p>
+<p>cp syncthing /usr/local/bin<br>
+然后直接运行syncthing</p>
+<p>停止，我的配置文件是在/root/.local/state/syncthing/config.xml<br>
+初次运行syncthing会在当前用户的用户目录下生成配置文件，比如现在使用的是root用户：</p>
+<p>vim /root/.local/state/syncthing/config.xml<br>
+大概在第72行找到</p>
+<address>127.0.0.1:8384</address>
+改成
+<address>0.0.0.0:8384</address>
+之后重启syncthing
+<p>syncthing<br>
+现在通过浏览器访问服务器IP地址就可以看到syncthing了：IP:8384</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Alist套娃挂载小雅]]></title>
+        <id>https://waynesway.github.io/post/alist-tao-wa-gua-zai-xiao-ya/</id>
+        <link href="https://waynesway.github.io/post/alist-tao-wa-gua-zai-xiao-ya/">
+        </link>
+        <updated>2024-03-29T03:43:08.000Z</updated>
+        <content type="html"><![CDATA[<p>不折腾会死星人。<br>
+前段时间把小雅更新了下，总算是可以正常使用了。但是突然冒出的想法，想要把小雅挂载到alist上面。<br>
+嗯，百度谷歌了一下，发现跟我一样闲得蛋疼的人不少。从什么值得买的一个教程上按步骤更新了下我的alist，按v3模式挂载的，但是总是提示Failed init storage: the site does not allow mounted。<br>
+找了下在issue下面找到了答案。填写挂载的令牌就行。 方法如下<br>
+执行下面神秘的代码，你就能获取token</p>
+<p>docker exec -i xiaoya sqlite3 data/data.db &lt;&lt;EOF<br>
+select value from x_setting_items where key = &quot;token&quot;;<br>
+EOF</p>
+<p>把获取的token填入“令牌”处，把用户名和密码留空<br>
+<img src="https://telegraph-image-el2.pages.dev/file/5a008c912b760d05a4216.png" alt="my" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[第一把玩具枪 ]]></title>
+        <id>https://waynesway.github.io/post/di-yi-ba-wan-ju-qiang/</id>
+        <link href="https://waynesway.github.io/post/di-yi-ba-wan-ju-qiang/">
+        </link>
+        <updated>2024-03-25T03:58:24.000Z</updated>
+        <content type="html"><![CDATA[<p>自己的第一个玩具手枪是什么样子到现在还记得，那是个棕红色枪身的长的步枪。装填6mm塑料弹。是过年的时候用压岁钱买的，刚买的时候很是喜欢，几乎就是抱着不离手。劲儿也不小，那会小自己都要费很大的劲儿才能压上子弹。我的枪法不怎么样，当然玩具枪也没什么准度。爱不离手，晚上都是把它藏在大衣柜里面。怎么坏的也记得清清楚楚，原因就是塑料的承受能力到了极限。我前一天晚上睡觉前压上的劲儿忘了放了，结果第二天早上扳机的地方由于承受不了那么就的压力第一枪就坏掉了。<br>
+坏了的玩具枪被我给拆开了，还不错学到点东西，爸爸说里面的设计跟真枪几乎一样。有弹道，枪膛等等。心疼啊，那会记得花了不少钱呢。</p>
+<p>后来我也买过许许多多各种各样的枪，但只有这第一把记忆留得比较深，不用深想就能够回忆起来。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[红月亮 ]]></title>
+        <id>https://waynesway.github.io/post/hong-yue-liang/</id>
+        <link href="https://waynesway.github.io/post/hong-yue-liang/">
+        </link>
+        <updated>2024-03-25T03:54:42.000Z</updated>
+        <content type="html"><![CDATA[<p>据说前几天月食来着，我也是当天白天的时候就听说有这件事了。白天逛西贝的时候看到的。可是由于后来无意中浏览另一网站时候发现两者说的时间不同,一个说八点多开始，另一个说十二点开始。于是终于晚上玩游戏把所有的时间都忘记了。直到第二天看别人的碎碎念才想起来昨天原来月食来着.</p>
+<p>我记得小时候第一次看类似的天文奇观是日食.那会兴奋的不行，老早就起来，等着日出,等着看日食.那会电视上也说了，看日食的时候最好准备盆蜜水,那会哪管的了这些，只是睁大了双眼直勾勾的望着,不管刺的有多疼。再后来是流星雨,凌晨两点,定好了闹铃爬起来,批上毛毯就跑出去看星星了。</p>
+<p>随着年龄增长那份好奇心也一点点的消失了.好奇心是人进取的动力。<br>
+看了个段子,普通青年为了像文艺青年学习，半夜出去看月食,结果冻成了二逼青年.<br>
+我在想二逼青年也比像我这样的麻木青年要好.从今天开始我要准备好看红月亮,红太阳,或者转瞬的流星雨.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[关于efb-wechat-slave频繁登出的问题]]></title>
+        <id>https://waynesway.github.io/post/guan-yu-efb-wechat-slave-pin-fan-deng-chu-de-wen-ti/</id>
+        <link href="https://waynesway.github.io/post/guan-yu-efb-wechat-slave-pin-fan-deng-chu-de-wen-ti/">
+        </link>
+        <updated>2024-03-05T08:08:45.000Z</updated>
+        <content type="html"><![CDATA[<p>最近龟壳搭建的微信转发的机器人一直把我踢掉线。感觉微信肯定是做手脚了。<br>
+一直稳定的快运行两年了。本来打算放弃了。但是无意间看到项目的github地址。翻了翻issue，大家原来遇到一样的问题。<br>
+有个热心网友给出了解决的办法。<br>
+“方法是修改<br>
+efb_wechat_slave/vendor/itchat/components/login.py:360<br>
+把 e.args[0].args[1]修改为e.args[0].reason.args[1]”</p>
+<p>嗯就是这简单的一句话，作为小白的我就得理解半天。好在我有gpt。<br>
+使用终端或命令提示符导航到 efb-wechat-slave 软件包的安装目录。你可以使用以下命令：<br>
+Linux 和 macOS：<br>
+pip3 show efb-wechat-slave</p>
+<p>运行这个命令之后会显示出这个python文件的安装位置。cd 定位到这个地方然后，再 cd vendor/itchat/components<br>
+Nano login.py. F6 定位到要修改的位置。按网友操作提示修改对应的值。然后就行了</p>
+<p>修改后问题消失了。嗯，又可以再用一段时间了。</p>
+]]></content>
+    </entry>
+</feed>

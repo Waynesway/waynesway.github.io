@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Linux安装Syncthing步骤 | 翻过</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://waynesway.github.io/favicon.ico?v=1736929409544">
+<link rel="stylesheet" href="https://waynesway.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2NXHCQ3G7R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2NXHCQ3G7R');
+</script>
+
+
+    <meta name="description" content="cd /tmp
+wget https://github.com/syncthing/syncthing/releases/download/v1.27.6/syncthing-linux-amd64-v1.27.6.tar.gz
+tar x..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://waynesway.github.io">
+        <img src="https://waynesway.github.io/images/avatar.png?v=1736929409544" class="site-logo">
+        <h1 class="site-title">翻过</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      翻过山丘，才发现白了头
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://waynesway.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Linux安装Syncthing步骤</h2>
+            <div class="post-date">2024-04-22</div>
+            
+            <div class="post-content" v-pre>
+              <p>cd /tmp<br>
+wget https://github.com/syncthing/syncthing/releases/download/v1.27.6/syncthing-linux-amd64-v1.27.6.tar.gz</p>
+<p>tar xzvf syncthing-linux-amd64-v1.27.6.tar.gz</p>
+<p>cd syncthing-linux-amd64-v1.27.6</p>
+<p>cp syncthing /usr/local/bin<br>
+然后直接运行syncthing</p>
+<p>停止，我的配置文件是在/root/.local/state/syncthing/config.xml<br>
+初次运行syncthing会在当前用户的用户目录下生成配置文件，比如现在使用的是root用户：</p>
+<p>vim /root/.local/state/syncthing/config.xml<br>
+大概在第72行找到</p>
+<address>127.0.0.1:8384</address>
+改成
+<address>0.0.0.0:8384</address>
+之后重启syncthing
+<p>syncthing<br>
+现在通过浏览器访问服务器IP地址就可以看到syncthing了：IP:8384</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://waynesway.github.io/post/alist-tao-wa-gua-zai-xiao-ya/">
+                  <h3 class="post-title">
+                    Alist套娃挂载小雅
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

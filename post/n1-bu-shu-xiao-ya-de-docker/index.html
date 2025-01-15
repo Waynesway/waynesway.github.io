@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>N1部署小雅的docker | 翻过</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://waynesway.github.io/favicon.ico?v=1736929409544">
+<link rel="stylesheet" href="https://waynesway.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2NXHCQ3G7R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2NXHCQ3G7R');
+</script>
+
+
+    <meta name="description" content="N1开始部署的这个小雅的docker，用起来没什么问题。最近阿里的政策收紧了。
+需要去设置自己的token，刚开始没有设置也能愉快的玩耍。但是最近不能打开了，于是开始折腾。把原来的容器删掉之后就怎么也进不去端口了。折腾了半天，可能是之前自己..." />
+    <meta name="keywords" content="N1,Docker" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://waynesway.github.io">
+        <img src="https://waynesway.github.io/images/avatar.png?v=1736929409544" class="site-logo">
+        <h1 class="site-title">翻过</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      翻过山丘，才发现白了头
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://waynesway.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">N1部署小雅的docker</h2>
+            <div class="post-date">2023-02-10</div>
+            
+            <div class="post-content" v-pre>
+              <p>N1开始部署的这个小雅的docker，用起来没什么问题。最近阿里的政策收紧了。<br>
+需要去设置自己的token，刚开始没有设置也能愉快的玩耍。但是最近不能打开了，于是开始折腾。把原来的容器删掉之后就怎么也进不去端口了。折腾了半天，可能是之前自己手动在防火墙里面加的乱七八糟的规则的原因。于是删掉还是不行。没法自己去群里面爬找到作者的推荐方法。把防火墙重置一下就行了。原来的docker是host格式的，新建的docker用默认的birdge就行。</p>
+<p>下面的命令搜索来源网络备份记录下。</p>
+<p>但是这个管理员的端口还是进不去，不管了以后再研究把。</p>
+<p>1.先把自己的token建立下</p>
+<h3 id="阿里token">阿里token</h3>
+<p>****<a href="https://alist.nn.ci/zh/guide/drivers/aliyundrive.html">https://alist.nn.ci/zh/guide/drivers/aliyundrive.html</a>    或</p>
+<p><a href="https://aliyundriver-refresh-token.vercel.app/">https://aliyundriver-refresh-token.vercel.app/</a></p>
+<p>获取你的移动端token</p>
+<p>然后，在终端命令行 （xxxxxxxxxxxxxxxx 就是你获取的token）</p>
+<p><strong>echo xxxxxxxxxxxxxxxxxxxxxx &gt; /etc/xiaoya/mytoken.txt</strong></p>
+<p>或者将你自己获取到的token粘贴至 etc/xiaoya/mytoken.txt文件里并保存<br>
+2.安装部署<br>
+下载http://docker.xiaoya.pro/update_xiaoya.sh，然后进行编辑，原版内容为：</p>
+<p>docker stop xiaoya<br>
+docker rm xiaoya<br>
+docker pull xiaoyaliu/alist:latest<br>
+if [ -d /etc/xiaoya/mytoken.txt ]; then<br>
+rm -rf /etc/xiaoya/mytoken.txt<br>
+fi<br>
+mkdir -p /etc/xiaoya<br>
+touch /etc/xiaoya/mytoken.txt<br>
+touch /etc/xiaoya/pikpak.txt<br>
+docker run -d -p 5678:80 -v /etc/xiaoya:/data --restart=always --name=xiaoya xiaoyaliu/alist:latest<br>
+将红字替换为：<br>
+docker run -d -p 5678:80 -p 5244:5244 -v /etc/xiaoya/mytoken.txt:/mytoken.txt --restart=always --name=xiaoya xiaoyaliu/alist:latest<br>
+执行后就可以进入管理页面。</p>
+<p>管理URL：http://x.x.x.x:5244/@manage</p>
+<p>有了管理界面，就可以自己再新添资源了，还可以把自己的网盘也加入进去，不然只能搞套娃，自己新建alist再把这个小雅超集alist包含进去。</p>
+<p>3.Docker 重置防火墙规则 重启。<br>
+iptables -F<br>
+service dockerd restart</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://waynesway.github.io/tag/dWFa6tDn-/" class="tag">
+                    N1
+                  </a>
+                
+                  <a href="https://waynesway.github.io/tag/tOEm_3RNLA/" class="tag">
+                    Docker
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://waynesway.github.io/post/giffgaff-dian-hua-qia-shi-yong-faq/">
+                  <h3 class="post-title">
+                    Giffgaff 电话卡使用FAQ
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
