@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://fanguo.eu.org</id>
+    <title>Gridea</title>
+    <updated>2025-09-24T08:48:24.860Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://fanguo.eu.org"/>
+    <link rel="self" href="https://fanguo.eu.org/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://fanguo.eu.org/images/avatar.png</logo>
+    <icon>https://fanguo.eu.org/favicon.ico</icon>
+    <rights>All rights reserved 2025, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Docker打不开怎么办]]></title>
+        <id>https://fanguo.eu.org/post/docker-da-bu-kai-zen-me-ban/</id>
+        <link href="https://fanguo.eu.org/post/docker-da-bu-kai-zen-me-ban/">
+        </link>
+        <updated>2025-09-24T08:47:55.000Z</updated>
+        <content type="html"><![CDATA[<p>我本机一般安装那个shellcrah 为了解决恶心的docker被墙打不开，我找过好多网络的第三方的加速的网站，时灵时不灵，索性直接把我本地的环境关上代理了，这样妈妈再也不用担心我pull不下来镜像了。<br>
+ai了一下设置步骤如下</p>
+<p>Docker 代理：<br>
+sudo mkdir -p /etc/systemd/system/docker.service.d<br>
+sudo nano /etc/systemd/system/docker.service.d/http-proxy.conf<br>
+添加：<br>
+[Service]<br>
+Environment=&quot;HTTP_PROXY=http://192.168.3.4:7890&quot;<br>
+Environment=&quot;HTTPS_PROXY=http://192.168.3.4:7890&quot;<br>
+Environment=&quot;NO_PROXY=localhost,127.0.0.1,<em>.qq.com,</em>.tencent.com,<em>.tuna.tsinghua.edu.cn,</em>.docker.io,*.docker.com&quot;<br>
+重启：<br>
+bashsudo systemctl daemon-reload<br>
+sudo systemctl restart docker</p>
+]]></content>
+    </entry>
+</feed>
