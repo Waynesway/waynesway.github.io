@@ -1,0 +1,23 @@
+baseURL = 'https://Waynesway.github.io/'
+languageCode = 'en-us'
+title = 'Waynesway'
+theme = 'dream'
+
+[params]
+    lightTheme = "emerald"
+    darkTheme = "forest"
+    author = "Waynesway"
+    headerTitle = "Waynesway"
+    siteStartYear = 2026
+    avatar = "/img/avatar.jpeg"
+    
+    # Enable search and social
+    [params.social]
+        github = "Waynesway"
+
+[menu]
+    [[menu.main]]
+        identifier = "posts"
+        name = "Posts"
+        url = "/post/"
+        weight = 10
