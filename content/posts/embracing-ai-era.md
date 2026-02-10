@@ -1,7 +1,7 @@
 ---
 title: "拥抱AI时代：从手动脚本到智能代理的跨越"
 date: 2026-02-09T07:53:00Z
-featured_image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000"
+cover: "/img/embracing-ai.png"
 tags: ["AI", "OpenClaw", "外贸", "自动化"]
 categories: ["思考"]
 ---
