@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows on Waynesway</title>
+    <link>https://Waynesway.github.io/tags/windows/</link>
+    <description>Recent content in Windows on Waynesway</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Feb 2026 03:45:00 +0800</lastBuildDate>
+    <atom:link href="https://Waynesway.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Win10 安装完之后不能访问共享的解决办法</title>
+      <link>https://Waynesway.github.io/posts/win10-share-fix/</link>
+      <pubDate>Tue, 10 Feb 2026 03:45:00 +0800</pubDate>
+      <guid>https://Waynesway.github.io/posts/win10-share-fix/</guid>
+      <description>这篇文章记录了 Windows 10 安装完成后无法访问网络共享的解决办法。&#xA;1. 打开 SMB 协议 在控制面板中启用 SMB 1.0/CIFS 文件共享支持。&#xA;路径：控制面板\程序\程序和功能 -&amp;gt; 启用或关闭 Windows 功能 -&amp;gt; 勾选 SMB 1.0/CIFS 文件共享支持。&#xA;2. 组策略中打开“启用不安全来宾登录” 如果对方共享没有设置密码，Win10 默认会拦截不安全的来宾登录。&#xA;操作步骤：&#xA;按下 Win + R，输入 gpedit.msc 打开组策略编辑器。 依次选择：计算机配置 -&amp;gt; 管理模板 -&amp;gt; 网络 -&amp;gt; Lanman 工作站。 在右侧找到 “启用不安全的来宾登录”，双击打开。 选择 “已启用”，点击确定。 原文搬运自：风中散发 (fanguo.eu.org)</description>
+    </item>
+  </channel>
+</rss>
