@@ -4,7 +4,7 @@ date: 2026-02-10T03:45:00+08:00
 draft: false
 tags: ["Windows", "Win10", "网络共享", "SMB"]
 categories: ["技术折腾"]
-cover: "/img/win10-share-fix.webp"
+cover: "/img/win10-share-fix.png"
 ---
 
 这篇文章记录了 Windows 10 安装完成后无法访问网络共享的解决办法。
