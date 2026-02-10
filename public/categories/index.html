@@ -230,7 +230,7 @@ All Categories | Waynesway</title>
 
   <div class="md:basis-[200px] lg:basis-[300px] p-4 prose dark:prose-invert">
     <h1 class="text-2xl">All Categories</h1>
-    <p class="text-sm">4 categories</p>
+    <p class="text-sm">5 categories</p>
     <div class="flex flex-wrap gap-4 mt-6">
       
       <a href="/categories/industry/" class="badge h-6 no-underline hover:badge-primary">
@@ -239,6 +239,10 @@ All Categories | Waynesway</title>
       
       <a href="/categories/%E6%80%9D%E8%80%83/" class="badge h-6 no-underline hover:badge-primary">
         思考
+      </a>
+      
+      <a href="/categories/%E6%8A%80%E6%9C%AF%E6%8A%98%E8%85%BE/" class="badge h-6 no-underline hover:badge-primary">
+        技术折腾
       </a>
       
       <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" class="badge h-6 no-underline hover:badge-primary">
@@ -280,6 +284,59 @@ All Categories | Waynesway</title>
     </p>
 
     转发自风中散发的博文，探讨了从虎码回归小鹤音形的心路历程，以及对‘折腾’的释然。
+
+    
+    <div class="card-actions justify-between items-center mt-4">
+      
+        <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+  
+    <span itemprop="name">Waynesway</span>
+  
+  </span>
+</div>
+
+      
+
+      <div class="flex items-center">
+        <ion-icon name="time" class="mr-1"></ion-icon>
+        <span>1 minute read</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+        </div>
+      
+        <div class="w-full md:w-1/2 lg:w-1/3 p-4 dream-column">
+          <a class="card bg-base-100 hover:bg-base-content/10 shadow-xl cursor-pointer dark:border dark:border-base-content/30" href="/posts/win10-share-fix/">
+  
+  <figure>
+    
+    <img src="/img/win10-share-fix.png" alt="Win10 安装完之后不能访问共享的解决办法" />
+    
+  </figure>
+  
+
+  <div class="card-body">
+    <h2 class="card-title">Win10 安装完之后不能访问共享的解决办法</h2>
+
+    <p class="date text-base-content/60">
+    
+      Tuesday, Feb 10, 2026
+    
+    </p>
+
+    这篇文章记录了 Windows 10 安装完成后无法访问网络共享的解决办法。
+1. 打开 SMB 协议 在控制面板中启用 SMB 1.0/CIFS 文件共享支持。
+路径：控制面板\程序\程序和功能 -&gt; 启用或关闭 Windows 功能 -&gt; 勾选 SMB 1.0/CIFS 文件共享支持。
+2. 组策略中打开“启用不安全来宾登录” 如果对方共享没有设置密码，Win10 默认会拦截不安全的来宾登录。
+操作步骤：
+按下 Win + R，输入 gpedit.msc 打开组策略编辑器。 依次选择：计算机配置 -&gt; 管理模板 -&gt; 网络 -&gt; Lanman 工作站。 在右侧找到 “启用不安全的来宾登录”，双击打开。 选择 “已启用”，点击确定。 原文搬运自：风中散发 (fanguo.eu.org)
 
     
     <div class="card-actions justify-between items-center mt-4">
@@ -367,8 +424,8 @@ AI 时代还有太多未知的领域等着我去探索。
     
     
     <picture>
-      <source srcset="/images/default4_hu3d03a01dcc18bc5be0e67db3d8d209a6_32836_640x426_resize_q75_h2_box.webp" type="image/webp" />
-      <img src="/images/default4.jpg" alt="images/default4.jpg" />
+      <source srcset="/images/default2_hu3d03a01dcc18bc5be0e67db3d8d209a6_92733_640x443_resize_q75_h2_box.webp" type="image/webp" />
+      <img src="/images/default2.jpg" alt="images/default2.jpg" />
     </picture>
     
   </figure>
