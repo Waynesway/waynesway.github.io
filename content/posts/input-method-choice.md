@@ -6,7 +6,7 @@ categories: ["技术笔记", "阅读"]
 tags: ["输入法", "小鹤双拼", "Rime", "折腾"]
 summary: "转发自风中散发的博文，探讨了从虎码回归小鹤音形的心路历程，以及对‘折腾’的释然。"
 cover:
-    image: "https://github.com/boomker/rime-fast-xhup/raw/master/screenshot.png"
+    image: "/img/input-method.png"
 ---
 
 > **游刃注：** 看到这篇博文，深有感触。在外贸和 AI 自动化的折腾之路上，有时候“回归最熟练的工具”反而是一种智慧。
