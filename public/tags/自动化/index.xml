@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>自动化 on Waynesway</title>
+    <link>https://Waynesway.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/</link>
+    <description>Recent content in 自动化 on Waynesway</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Feb 2026 07:53:00 +0000</lastBuildDate>
+    <atom:link href="https://Waynesway.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>拥抱AI时代：从手动脚本到智能代理的跨越</title>
+      <link>https://Waynesway.github.io/posts/embracing-ai-era/</link>
+      <pubDate>Mon, 09 Feb 2026 07:53:00 +0000</pubDate>
+      <guid>https://Waynesway.github.io/posts/embracing-ai-era/</guid>
+      <description>做好拥抱这个AI时代的准备。我现在每天都会多关注与AI相关的信息，尽量不让自己落伍，但有时还是感到力不从心。&#xA;回想起以前，我们需要自己爬取大量网页、翻看各种教程，甚至还要手动一个一个敲脚本。那个时代已经一去不复返了。现在，我只需要说出我的需求，OpenClaw 就会作为我的智能代理在后台默默工作。那些复杂的代码命令，我们已经不再需要去死记硬背或深度掌握，这种变革速度甚至让我感到一丝“害怕”。&#xA;举个例子：2017年公司曾购买过一款外贸搜索软件，本质上就是由一些 Python 脚本搭建的工具，功能是自动去 Google、Yahoo 搜索特定关键词并整理到表格里。那时的搜索逻辑和命令都是固定的、死板的。&#xA;而现在，这一切都进化了。我只需要告诉 OpenClaw 我需要找哪些关键词，还能灵活定制搜索时间、指定参考网站。这些以前需要付费请人定制、开发的工作，现在只需要动动嘴，AI 就能帮我高效完成。&#xA;AI 时代还有太多未知的领域等着我去探索。</description>
+    </item>
+  </channel>
+</rss>
