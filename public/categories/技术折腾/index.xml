@@ -4,7 +4,7 @@
     <title>技术折腾 on Waynesway</title>
     <link>https://Waynesway.github.io/categories/%E6%8A%80%E6%9C%AF%E6%8A%98%E8%85%BE/</link>
     <description>Recent content in 技术折腾 on Waynesway</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 10 Feb 2026 13:25:00 +0800</lastBuildDate>
     <atom:link href="https://Waynesway.github.io/categories/%E6%8A%80%E6%9C%AF%E6%8A%98%E8%85%BE/index.xml" rel="self" type="application/rss+xml" />
@@ -13,14 +13,14 @@
       <link>https://Waynesway.github.io/posts/how-to-install-windows-system/</link>
       <pubDate>Tue, 10 Feb 2026 13:25:00 +0800</pubDate>
       <guid>https://Waynesway.github.io/posts/how-to-install-windows-system/</guid>
-      <description>我的电脑目前运行的是 Windows 10 LTSC 2019，它流畅且稳定，没出过任何问题，我很满意。&#xA;但今天，不知道为什么，我产生了一种强烈的欲望，想把系统换回 Windows 7。那个系统我用了 12 年多，它既快又稳，我很怀念旧时光的那种感觉。&#xA;决定一下，我就开始动手了。&#xA;我懒得用 U 盘启动到 PE 系统，就在网上找了一个“一键安装器”和一个 Windows 7 的 .esd 文件。我点了一下，噩梦就开始了。&#xA;软件运行完重启后，我进入了 Win7，但发现我的一个 HDD 硬盘无法被识别。搜索后发现可能是分区格式的问题，除了格式化硬盘似乎没有别的解决办法。&#xA;纠结了一阵后，我不得不重新使用 WEPE 把系统装回了 Windows 10。&#xA;人老了，可能就没有欲望去学习新东西，且害怕改变。今天我尝试做出改变，但结果似乎证明：最好还是什么都别改。&#xA;原文搬运自：风中散发 (fanguo.eu.org)</description>
+      <description>&lt;p&gt;我的电脑目前运行的是 Windows 10 LTSC 2019，它流畅且稳定，没出过任何问题，我很满意。&lt;/p&gt;&#xA;&lt;p&gt;但今天，不知道为什么，我产生了一种强烈的欲望，想把系统换回 Windows 7。那个系统我用了 12 年多，它既快又稳，我很怀念旧时光的那种感觉。&lt;/p&gt;&#xA;&lt;p&gt;决定一下，我就开始动手了。&lt;/p&gt;&#xA;&lt;p&gt;我懒得用 U 盘启动到 PE 系统，就在网上找了一个“一键安装器”和一个 Windows 7 的 .esd 文件。我点了一下，噩梦就开始了。&lt;/p&gt;&#xA;&lt;p&gt;软件运行完重启后，我进入了 Win7，但发现我的一个 HDD 硬盘无法被识别。搜索后发现可能是分区格式的问题，除了格式化硬盘似乎没有别的解决办法。&lt;/p&gt;&#xA;&lt;p&gt;纠结了一阵后，我不得不重新使用 WEPE 把系统装回了 Windows 10。&lt;/p&gt;&#xA;&lt;p&gt;人老了，可能就没有欲望去学习新东西，且害怕改变。今天我尝试做出改变，但结果似乎证明：最好还是什么都别改。&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;em&gt;原文搬运自：风中散发 (fanguo.eu.org)&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Win10 安装完之后不能访问共享的解决办法</title>
       <link>https://Waynesway.github.io/posts/win10-share-fix/</link>
       <pubDate>Tue, 10 Feb 2026 03:45:00 +0800</pubDate>
       <guid>https://Waynesway.github.io/posts/win10-share-fix/</guid>
-      <description>这篇文章记录了 Windows 10 安装完成后无法访问网络共享的解决办法。&#xA;1. 打开 SMB 协议 在控制面板中启用 SMB 1.0/CIFS 文件共享支持。&#xA;路径：控制面板\程序\程序和功能 -&amp;gt; 启用或关闭 Windows 功能 -&amp;gt; 勾选 SMB 1.0/CIFS 文件共享支持。&#xA;2. 组策略中打开“启用不安全来宾登录” 如果对方共享没有设置密码，Win10 默认会拦截不安全的来宾登录。&#xA;操作步骤：&#xA;按下 Win + R，输入 gpedit.msc 打开组策略编辑器。 依次选择：计算机配置 -&amp;gt; 管理模板 -&amp;gt; 网络 -&amp;gt; Lanman 工作站。 在右侧找到 “启用不安全的来宾登录”，双击打开。 选择 “已启用”，点击确定。 原文搬运自：风中散发 (fanguo.eu.org)</description>
+      <description>&lt;p&gt;这篇文章记录了 Windows 10 安装完成后无法访问网络共享的解决办法。&lt;/p&gt;&#xA;&lt;h3 id=&#34;1-打开-smb-协议&#34;&gt;1. 打开 SMB 协议&lt;/h3&gt;&#xA;&lt;p&gt;在控制面板中启用 SMB 1.0/CIFS 文件共享支持。&lt;/p&gt;&#xA;&lt;p&gt;路径：&lt;code&gt;控制面板\程序\程序和功能&lt;/code&gt; -&amp;gt; &lt;code&gt;启用或关闭 Windows 功能&lt;/code&gt; -&amp;gt; 勾选 &lt;code&gt;SMB 1.0/CIFS 文件共享支持&lt;/code&gt;。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://img.orzorg.eu.org/v2/RqWa1Fu.png&#34; alt=&#34;SMB 设置&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;2-组策略中打开启用不安全来宾登录&#34;&gt;2. 组策略中打开“启用不安全来宾登录”&lt;/h3&gt;&#xA;&lt;p&gt;如果对方共享没有设置密码，Win10 默认会拦截不安全的来宾登录。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;操作步骤：&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;按下 &lt;code&gt;Win + R&lt;/code&gt;，输入 &lt;code&gt;gpedit.msc&lt;/code&gt; 打开组策略编辑器。&lt;/li&gt;&#xA;&lt;li&gt;依次选择：&lt;code&gt;计算机配置&lt;/code&gt; -&amp;gt; &lt;code&gt;管理模板&lt;/code&gt; -&amp;gt; &lt;code&gt;网络&lt;/code&gt; -&amp;gt; &lt;code&gt;Lanman 工作站&lt;/code&gt;。&lt;/li&gt;&#xA;&lt;li&gt;在右侧找到 &lt;strong&gt;“启用不安全的来宾登录”&lt;/strong&gt;，双击打开。&lt;/li&gt;&#xA;&lt;li&gt;选择 &lt;strong&gt;“已启用”&lt;/strong&gt;，点击确定。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_vLiyyCT9VIzSvbmhmYivZj3PMLMix60GrYzpzMQnjg5H3weicC4kEINT55v_PSbPq5FOahl5zWL8VzDaWlkJBT5dTleqByWXnL=s0-d&#34; alt=&#34;组策略设置&#34;&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;em&gt;原文搬运自：风中散发 (fanguo.eu.org)&lt;/em&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

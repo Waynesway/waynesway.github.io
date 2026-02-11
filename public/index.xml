@@ -4,23 +4,30 @@
     <title>Waynesway</title>
     <link>https://Waynesway.github.io/</link>
     <description>Recent content on Waynesway</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 Feb 2026 13:25:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 11 Feb 2026 16:35:00 +0800</lastBuildDate>
     <atom:link href="https://Waynesway.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>翻译：别被 AI 代理搞焦虑了，先打好基本功</title>
+      <link>https://Waynesway.github.io/posts/ai-productivity-gap/</link>
+      <pubDate>Wed, 11 Feb 2026 16:35:00 +0800</pubDate>
+      <guid>https://Waynesway.github.io/posts/ai-productivity-gap/</guid>
+      <description>&lt;p&gt;最近我注意到一个现象：很多营销人员感到非常焦虑。这并不是因为他们真的“落后”了，而是因为 AI 的发展速度快得让人感到无法呼吸。&lt;/p&gt;&#xA;&lt;p&gt;如果你也处于这种状态，请先深呼吸。&lt;/p&gt;&#xA;&lt;p&gt;你现在还不需要担心 OpenClaw、n8n、Make 或者那些复杂的 AI 代理工作流。&lt;/p&gt;&#xA;&lt;p&gt;如果你还没有为自己日常重复的营销任务构建出 10 到 12 个自定义 GPTs（或者轻量级代理），那你还没到需要为“编排平台”发愁的阶段。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;一步一步来。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;因为我看到的最大的生产力差距，并不是“没有代理”，而是&lt;strong&gt;基本习惯的缺失&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;许多人使用 AI 的方式依然是：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;每天打开一个新的 ChatGPT 窗口。&lt;/li&gt;&#xA;&lt;li&gt;重复输入相同的背景上下文。&lt;/li&gt;&#xA;&lt;li&gt;问得虽然是好问题，但从未将它们转化为&lt;strong&gt;可复用的系统&lt;/strong&gt;。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;这不叫 AI 战略，这只是把 AI 当成了带搜索栏的工具。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;从小处着手赢在起跑线&#34;&gt;从小处着手，赢在起跑线：&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;把最常见的任务转化为&lt;strong&gt;可复用的提示词（Reusable Prompts）&lt;/strong&gt;。&lt;/li&gt;&#xA;&lt;li&gt;把它们打包成&lt;strong&gt;自定义 GPTs&lt;/strong&gt;（包含背景、语气、约束、示例）。&lt;/li&gt;&#xA;&lt;li&gt;持续使用它们，直到成为你的肌肉记忆。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;只有在那之后&lt;/strong&gt;：再去连接工作流、自动化和代理。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;此外：你可能做得比你想的要好。&lt;/p&gt;&#xA;&lt;p&gt;至少有一半的营销人员还没有真正在工作中深度使用 AI。如果你正在实验、学习，并建立了哪怕几个可重复的工作流，你就已经遥遥领先了。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;进步并不来自于追逐每一个新工具，而是来自于把你学到的东西转化为你真正使用的系统。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;em&gt;原文来自：Steff Peeters (@Steff_Peeters)&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>折腾 Windows 系统：一次失败的回退尝试</title>
       <link>https://Waynesway.github.io/posts/how-to-install-windows-system/</link>
       <pubDate>Tue, 10 Feb 2026 13:25:00 +0800</pubDate>
       <guid>https://Waynesway.github.io/posts/how-to-install-windows-system/</guid>
-      <description>我的电脑目前运行的是 Windows 10 LTSC 2019，它流畅且稳定，没出过任何问题，我很满意。&#xA;但今天，不知道为什么，我产生了一种强烈的欲望，想把系统换回 Windows 7。那个系统我用了 12 年多，它既快又稳，我很怀念旧时光的那种感觉。&#xA;决定一下，我就开始动手了。&#xA;我懒得用 U 盘启动到 PE 系统，就在网上找了一个“一键安装器”和一个 Windows 7 的 .esd 文件。我点了一下，噩梦就开始了。&#xA;软件运行完重启后，我进入了 Win7，但发现我的一个 HDD 硬盘无法被识别。搜索后发现可能是分区格式的问题，除了格式化硬盘似乎没有别的解决办法。&#xA;纠结了一阵后，我不得不重新使用 WEPE 把系统装回了 Windows 10。&#xA;人老了，可能就没有欲望去学习新东西，且害怕改变。今天我尝试做出改变，但结果似乎证明：最好还是什么都别改。&#xA;原文搬运自：风中散发 (fanguo.eu.org)</description>
+      <description>&lt;p&gt;我的电脑目前运行的是 Windows 10 LTSC 2019，它流畅且稳定，没出过任何问题，我很满意。&lt;/p&gt;&#xA;&lt;p&gt;但今天，不知道为什么，我产生了一种强烈的欲望，想把系统换回 Windows 7。那个系统我用了 12 年多，它既快又稳，我很怀念旧时光的那种感觉。&lt;/p&gt;&#xA;&lt;p&gt;决定一下，我就开始动手了。&lt;/p&gt;&#xA;&lt;p&gt;我懒得用 U 盘启动到 PE 系统，就在网上找了一个“一键安装器”和一个 Windows 7 的 .esd 文件。我点了一下，噩梦就开始了。&lt;/p&gt;&#xA;&lt;p&gt;软件运行完重启后，我进入了 Win7，但发现我的一个 HDD 硬盘无法被识别。搜索后发现可能是分区格式的问题，除了格式化硬盘似乎没有别的解决办法。&lt;/p&gt;&#xA;&lt;p&gt;纠结了一阵后，我不得不重新使用 WEPE 把系统装回了 Windows 10。&lt;/p&gt;&#xA;&lt;p&gt;人老了，可能就没有欲望去学习新东西，且害怕改变。今天我尝试做出改变，但结果似乎证明：最好还是什么都别改。&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;em&gt;原文搬运自：风中散发 (fanguo.eu.org)&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>舌头上的血泡：Blood Blister on My Tongue</title>
       <link>https://Waynesway.github.io/posts/blood-blister-on-my-tongue/</link>
       <pubDate>Tue, 10 Feb 2026 13:24:00 +0800</pubDate>
       <guid>https://Waynesway.github.io/posts/blood-blister-on-my-tongue/</guid>
-      <description>很有趣，我吃烧饼这类酥脆食物时，舌头或嘴里经常会起血泡。但今天午餐，我只是吃面条，舌头上也起了一个血泡。&#xA;我不知道为什么会这样。也许这是变老的另一个迹象——当口腔肌肉不够强壮时，你可能会在咀嚼时意外咬到自己。&#xA;我不能让血泡继续变大，于是决定用牙签把它挑破。暗红色的血液喷涌而出。这就像你内心阴暗的部分：你不能让它们生长，你需要找到一种方式把它们释放出来。&#xA;原文搬运自：风中散发 (fanguo.eu.org)</description>
+      <description>&lt;p&gt;很有趣，我吃烧饼这类酥脆食物时，舌头或嘴里经常会起血泡。但今天午餐，我只是吃面条，舌头上也起了一个血泡。&lt;/p&gt;&#xA;&lt;p&gt;我不知道为什么会这样。也许这是变老的另一个迹象——当口腔肌肉不够强壮时，你可能会在咀嚼时意外咬到自己。&lt;/p&gt;&#xA;&lt;p&gt;我不能让血泡继续变大，于是决定用牙签把它挑破。暗红色的血液喷涌而出。这就像你内心阴暗的部分：你不能让它们生长，你需要找到一种方式把它们释放出来。&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;em&gt;原文搬运自：风中散发 (fanguo.eu.org)&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>阅读笔记：输入法的纠结与选择</title>
@@ -34,14 +41,14 @@
       <link>https://Waynesway.github.io/posts/win10-share-fix/</link>
       <pubDate>Tue, 10 Feb 2026 03:45:00 +0800</pubDate>
       <guid>https://Waynesway.github.io/posts/win10-share-fix/</guid>
-      <description>这篇文章记录了 Windows 10 安装完成后无法访问网络共享的解决办法。&#xA;1. 打开 SMB 协议 在控制面板中启用 SMB 1.0/CIFS 文件共享支持。&#xA;路径：控制面板\程序\程序和功能 -&amp;gt; 启用或关闭 Windows 功能 -&amp;gt; 勾选 SMB 1.0/CIFS 文件共享支持。&#xA;2. 组策略中打开“启用不安全来宾登录” 如果对方共享没有设置密码，Win10 默认会拦截不安全的来宾登录。&#xA;操作步骤：&#xA;按下 Win + R，输入 gpedit.msc 打开组策略编辑器。 依次选择：计算机配置 -&amp;gt; 管理模板 -&amp;gt; 网络 -&amp;gt; Lanman 工作站。 在右侧找到 “启用不安全的来宾登录”，双击打开。 选择 “已启用”，点击确定。 原文搬运自：风中散发 (fanguo.eu.org)</description>
+      <description>&lt;p&gt;这篇文章记录了 Windows 10 安装完成后无法访问网络共享的解决办法。&lt;/p&gt;&#xA;&lt;h3 id=&#34;1-打开-smb-协议&#34;&gt;1. 打开 SMB 协议&lt;/h3&gt;&#xA;&lt;p&gt;在控制面板中启用 SMB 1.0/CIFS 文件共享支持。&lt;/p&gt;&#xA;&lt;p&gt;路径：&lt;code&gt;控制面板\程序\程序和功能&lt;/code&gt; -&amp;gt; &lt;code&gt;启用或关闭 Windows 功能&lt;/code&gt; -&amp;gt; 勾选 &lt;code&gt;SMB 1.0/CIFS 文件共享支持&lt;/code&gt;。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://img.orzorg.eu.org/v2/RqWa1Fu.png&#34; alt=&#34;SMB 设置&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;2-组策略中打开启用不安全来宾登录&#34;&gt;2. 组策略中打开“启用不安全来宾登录”&lt;/h3&gt;&#xA;&lt;p&gt;如果对方共享没有设置密码，Win10 默认会拦截不安全的来宾登录。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;操作步骤：&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;按下 &lt;code&gt;Win + R&lt;/code&gt;，输入 &lt;code&gt;gpedit.msc&lt;/code&gt; 打开组策略编辑器。&lt;/li&gt;&#xA;&lt;li&gt;依次选择：&lt;code&gt;计算机配置&lt;/code&gt; -&amp;gt; &lt;code&gt;管理模板&lt;/code&gt; -&amp;gt; &lt;code&gt;网络&lt;/code&gt; -&amp;gt; &lt;code&gt;Lanman 工作站&lt;/code&gt;。&lt;/li&gt;&#xA;&lt;li&gt;在右侧找到 &lt;strong&gt;“启用不安全的来宾登录”&lt;/strong&gt;，双击打开。&lt;/li&gt;&#xA;&lt;li&gt;选择 &lt;strong&gt;“已启用”&lt;/strong&gt;，点击确定。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_vLiyyCT9VIzSvbmhmYivZj3PMLMix60GrYzpzMQnjg5H3weicC4kEINT55v_PSbPq5FOahl5zWL8VzDaWlkJBT5dTleqByWXnL=s0-d&#34; alt=&#34;组策略设置&#34;&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;em&gt;原文搬运自：风中散发 (fanguo.eu.org)&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>拥抱AI时代：从手动脚本到智能代理的跨越</title>
       <link>https://Waynesway.github.io/posts/embracing-ai-era/</link>
       <pubDate>Mon, 09 Feb 2026 07:53:00 +0000</pubDate>
       <guid>https://Waynesway.github.io/posts/embracing-ai-era/</guid>
-      <description>做好拥抱这个AI时代的准备。我现在每天都会多关注与AI相关的信息，尽量不让自己落伍，但有时还是感到力不从心。&#xA;回想起以前，我们需要自己爬取大量网页、翻看各种教程，甚至还要手动一个一个敲脚本。那个时代已经一去不复返了。现在，我只需要说出我的需求，OpenClaw 就会作为我的智能代理在后台默默工作。那些复杂的代码命令，我们已经不再需要去死记硬背或深度掌握，这种变革速度甚至让我感到一丝“害怕”。&#xA;举个例子：2017年公司曾购买过一款外贸搜索软件，本质上就是由一些 Python 脚本搭建的工具，功能是自动去 Google、Yahoo 搜索特定关键词并整理到表格里。那时的搜索逻辑和命令都是固定的、死板的。&#xA;而现在，这一切都进化了。我只需要告诉 OpenClaw 我需要找哪些关键词，还能灵活定制搜索时间、指定参考网站。这些以前需要付费请人定制、开发的工作，现在只需要动动嘴，AI 就能帮我高效完成。&#xA;AI 时代还有太多未知的领域等着我去探索。</description>
+      <description>&lt;p&gt;做好拥抱这个AI时代的准备。我现在每天都会多关注与AI相关的信息，尽量不让自己落伍，但有时还是感到力不从心。&lt;/p&gt;&#xA;&lt;p&gt;回想起以前，我们需要自己爬取大量网页、翻看各种教程，甚至还要手动一个一个敲脚本。那个时代已经一去不复返了。现在，我只需要说出我的需求，OpenClaw 就会作为我的智能代理在后台默默工作。那些复杂的代码命令，我们已经不再需要去死记硬背或深度掌握，这种变革速度甚至让我感到一丝“害怕”。&lt;/p&gt;&#xA;&lt;p&gt;举个例子：2017年公司曾购买过一款外贸搜索软件，本质上就是由一些 Python 脚本搭建的工具，功能是自动去 Google、Yahoo 搜索特定关键词并整理到表格里。那时的搜索逻辑和命令都是固定的、死板的。&lt;/p&gt;&#xA;&lt;p&gt;而现在，这一切都进化了。我只需要告诉 OpenClaw 我需要找哪些关键词，还能灵活定制搜索时间、指定参考网站。这些以前需要付费请人定制、开发的工作，现在只需要动动嘴，AI 就能帮我高效完成。&lt;/p&gt;&#xA;&lt;p&gt;AI 时代还有太多未知的领域等着我去探索。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Wayne&#39;s Lash Hub: The Future of Beauty Exports</title>
@@ -55,7 +62,7 @@
       <link>https://Waynesway.github.io/posts/hello-world/</link>
       <pubDate>Sun, 08 Feb 2026 12:08:22 +0000</pubDate>
       <guid>https://Waynesway.github.io/posts/hello-world/</guid>
-      <description>BOOM! 💥 Welcome to Waynesway! This is the place where energy meets action! I&amp;rsquo;m officially live on the web and ready to shake things up!&#xA;Stay tuned for more updates, more speed, and more AWESOMENESS! ⚡️&#xA;Let&amp;rsquo;s GOOOOOO! 🏃‍♂️💨</description>
+      <description>&lt;h1 id=&#34;boom-&#34;&gt;BOOM! 💥&lt;/h1&gt;&#xA;&lt;p&gt;Welcome to &lt;strong&gt;Waynesway&lt;/strong&gt;! This is the place where energy meets action! I&amp;rsquo;m officially live on the web and ready to shake things up!&lt;/p&gt;&#xA;&lt;p&gt;Stay tuned for more updates, more speed, and more AWESOMENESS! ⚡️&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Let&amp;rsquo;s GOOOOOO!&lt;/strong&gt; 🏃‍♂️💨&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

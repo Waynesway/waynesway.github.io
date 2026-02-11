@@ -4,7 +4,7 @@
     <title>Win7 on Waynesway</title>
     <link>https://Waynesway.github.io/tags/win7/</link>
     <description>Recent content in Win7 on Waynesway</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 10 Feb 2026 13:25:00 +0800</lastBuildDate>
     <atom:link href="https://Waynesway.github.io/tags/win7/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>https://Waynesway.github.io/posts/how-to-install-windows-system/</link>
       <pubDate>Tue, 10 Feb 2026 13:25:00 +0800</pubDate>
       <guid>https://Waynesway.github.io/posts/how-to-install-windows-system/</guid>
-      <description>我的电脑目前运行的是 Windows 10 LTSC 2019，它流畅且稳定，没出过任何问题，我很满意。&#xA;但今天，不知道为什么，我产生了一种强烈的欲望，想把系统换回 Windows 7。那个系统我用了 12 年多，它既快又稳，我很怀念旧时光的那种感觉。&#xA;决定一下，我就开始动手了。&#xA;我懒得用 U 盘启动到 PE 系统，就在网上找了一个“一键安装器”和一个 Windows 7 的 .esd 文件。我点了一下，噩梦就开始了。&#xA;软件运行完重启后，我进入了 Win7，但发现我的一个 HDD 硬盘无法被识别。搜索后发现可能是分区格式的问题，除了格式化硬盘似乎没有别的解决办法。&#xA;纠结了一阵后，我不得不重新使用 WEPE 把系统装回了 Windows 10。&#xA;人老了，可能就没有欲望去学习新东西，且害怕改变。今天我尝试做出改变，但结果似乎证明：最好还是什么都别改。&#xA;原文搬运自：风中散发 (fanguo.eu.org)</description>
+      <description>&lt;p&gt;我的电脑目前运行的是 Windows 10 LTSC 2019，它流畅且稳定，没出过任何问题，我很满意。&lt;/p&gt;&#xA;&lt;p&gt;但今天，不知道为什么，我产生了一种强烈的欲望，想把系统换回 Windows 7。那个系统我用了 12 年多，它既快又稳，我很怀念旧时光的那种感觉。&lt;/p&gt;&#xA;&lt;p&gt;决定一下，我就开始动手了。&lt;/p&gt;&#xA;&lt;p&gt;我懒得用 U 盘启动到 PE 系统，就在网上找了一个“一键安装器”和一个 Windows 7 的 .esd 文件。我点了一下，噩梦就开始了。&lt;/p&gt;&#xA;&lt;p&gt;软件运行完重启后，我进入了 Win7，但发现我的一个 HDD 硬盘无法被识别。搜索后发现可能是分区格式的问题，除了格式化硬盘似乎没有别的解决办法。&lt;/p&gt;&#xA;&lt;p&gt;纠结了一阵后，我不得不重新使用 WEPE 把系统装回了 Windows 10。&lt;/p&gt;&#xA;&lt;p&gt;人老了，可能就没有欲望去学习新东西，且害怕改变。今天我尝试做出改变，但结果似乎证明：最好还是什么都别改。&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;em&gt;原文搬运自：风中散发 (fanguo.eu.org)&lt;/em&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

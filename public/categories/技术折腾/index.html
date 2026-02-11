@@ -19,19 +19,20 @@
 
 
 
-<meta name="generator" content="Hugo 0.121.2">
+<meta name="generator" content="Hugo 0.143.1">
 
 
-<meta property="og:title" content="技术折腾" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://Waynesway.github.io/categories/%E6%8A%80%E6%9C%AF%E6%8A%98%E8%85%BE/" />
+<meta property="og:url" content="https://Waynesway.github.io/categories/%E6%8A%80%E6%9C%AF%E6%8A%98%E8%85%BE/">
+  <meta property="og:site_name" content="Waynesway">
+  <meta property="og:title" content="技术折腾">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
 
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="技术折腾"/>
-<meta name="twitter:description" content=""/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="技术折腾">
 
 
 
@@ -292,14 +293,15 @@
     
     </p>
 
-    我的电脑目前运行的是 Windows 10 LTSC 2019，它流畅且稳定，没出过任何问题，我很满意。
-但今天，不知道为什么，我产生了一种强烈的欲望，想把系统换回 Windows 7。那个系统我用了 12 年多，它既快又稳，我很怀念旧时光的那种感觉。
-决定一下，我就开始动手了。
-我懒得用 U 盘启动到 PE 系统，就在网上找了一个“一键安装器”和一个 Windows 7 的 .esd 文件。我点了一下，噩梦就开始了。
-软件运行完重启后，我进入了 Win7，但发现我的一个 HDD 硬盘无法被识别。搜索后发现可能是分区格式的问题，除了格式化硬盘似乎没有别的解决办法。
-纠结了一阵后，我不得不重新使用 WEPE 把系统装回了 Windows 10。
-人老了，可能就没有欲望去学习新东西，且害怕改变。今天我尝试做出改变，但结果似乎证明：最好还是什么都别改。
-原文搬运自：风中散发 (fanguo.eu.org)
+    <p>我的电脑目前运行的是 Windows 10 LTSC 2019，它流畅且稳定，没出过任何问题，我很满意。</p>
+<p>但今天，不知道为什么，我产生了一种强烈的欲望，想把系统换回 Windows 7。那个系统我用了 12 年多，它既快又稳，我很怀念旧时光的那种感觉。</p>
+<p>决定一下，我就开始动手了。</p>
+<p>我懒得用 U 盘启动到 PE 系统，就在网上找了一个“一键安装器”和一个 Windows 7 的 .esd 文件。我点了一下，噩梦就开始了。</p>
+<p>软件运行完重启后，我进入了 Win7，但发现我的一个 HDD 硬盘无法被识别。搜索后发现可能是分区格式的问题，除了格式化硬盘似乎没有别的解决办法。</p>
+<p>纠结了一阵后，我不得不重新使用 WEPE 把系统装回了 Windows 10。</p>
+<p>人老了，可能就没有欲望去学习新东西，且害怕改变。今天我尝试做出改变，但结果似乎证明：最好还是什么都别改。</p>
+<hr>
+<p><em>原文搬运自：风中散发 (fanguo.eu.org)</em></p>
 
     
     <div class="card-actions justify-between items-center mt-4">
@@ -347,12 +349,23 @@
     
     </p>
 
-    这篇文章记录了 Windows 10 安装完成后无法访问网络共享的解决办法。
-1. 打开 SMB 协议 在控制面板中启用 SMB 1.0/CIFS 文件共享支持。
-路径：控制面板\程序\程序和功能 -&gt; 启用或关闭 Windows 功能 -&gt; 勾选 SMB 1.0/CIFS 文件共享支持。
-2. 组策略中打开“启用不安全来宾登录” 如果对方共享没有设置密码，Win10 默认会拦截不安全的来宾登录。
-操作步骤：
-按下 Win + R，输入 gpedit.msc 打开组策略编辑器。 依次选择：计算机配置 -&gt; 管理模板 -&gt; 网络 -&gt; Lanman 工作站。 在右侧找到 “启用不安全的来宾登录”，双击打开。 选择 “已启用”，点击确定。 原文搬运自：风中散发 (fanguo.eu.org)
+    <p>这篇文章记录了 Windows 10 安装完成后无法访问网络共享的解决办法。</p>
+<h3 id="1-打开-smb-协议">1. 打开 SMB 协议</h3>
+<p>在控制面板中启用 SMB 1.0/CIFS 文件共享支持。</p>
+<p>路径：<code>控制面板\程序\程序和功能</code> -&gt; <code>启用或关闭 Windows 功能</code> -&gt; 勾选 <code>SMB 1.0/CIFS 文件共享支持</code>。</p>
+<p><img src="https://img.orzorg.eu.org/v2/RqWa1Fu.png" alt="SMB 设置"></p>
+<h3 id="2-组策略中打开启用不安全来宾登录">2. 组策略中打开“启用不安全来宾登录”</h3>
+<p>如果对方共享没有设置密码，Win10 默认会拦截不安全的来宾登录。</p>
+<p><strong>操作步骤：</strong></p>
+<ol>
+<li>按下 <code>Win + R</code>，输入 <code>gpedit.msc</code> 打开组策略编辑器。</li>
+<li>依次选择：<code>计算机配置</code> -&gt; <code>管理模板</code> -&gt; <code>网络</code> -&gt; <code>Lanman 工作站</code>。</li>
+<li>在右侧找到 <strong>“启用不安全的来宾登录”</strong>，双击打开。</li>
+<li>选择 <strong>“已启用”</strong>，点击确定。</li>
+</ol>
+<p><img src="https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_vLiyyCT9VIzSvbmhmYivZj3PMLMix60GrYzpzMQnjg5H3weicC4kEINT55v_PSbPq5FOahl5zWL8VzDaWlkJBT5dTleqByWXnL=s0-d" alt="组策略设置"></p>
+<hr>
+<p><em>原文搬运自：风中散发 (fanguo.eu.org)</em></p>
 
     
     <div class="card-actions justify-between items-center mt-4">

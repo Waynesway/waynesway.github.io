@@ -19,19 +19,20 @@
 
 
 
-<meta name="generator" content="Hugo 0.121.2">
+<meta name="generator" content="Hugo 0.143.1">
 
 
-<meta property="og:title" content="SMB" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://Waynesway.github.io/tags/smb/" />
+<meta property="og:url" content="https://Waynesway.github.io/tags/smb/">
+  <meta property="og:site_name" content="Waynesway">
+  <meta property="og:title" content="SMB">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
 
 
 
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="SMB"/>
-<meta name="twitter:description" content=""/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SMB">
 
 
 
@@ -317,6 +318,12 @@
       
       
       
+      <a href="/tags/%E6%80%9D%E8%80%83/" class="badge h-6 no-underline hover:badge-primary">
+        思考
+      </a>
+      
+      
+      
       <a href="/tags/%E6%84%9F%E6%82%9F/" class="badge h-6 no-underline hover:badge-primary">
         感悟
       </a>
@@ -325,6 +332,12 @@
       
       <a href="/tags/%E6%8A%98%E8%85%BE/" class="badge h-6 no-underline hover:badge-primary">
         折腾
+      </a>
+      
+      
+      
+      <a href="/tags/%E7%94%9F%E4%BA%A7%E5%8A%9B/" class="badge h-6 no-underline hover:badge-primary">
+        生产力
       </a>
       
       
@@ -343,6 +356,12 @@
       
       <a href="/tags/%E7%BD%91%E7%BB%9C%E5%85%B1%E4%BA%AB/" class="badge h-6 no-underline hover:badge-primary">
         网络共享
+      </a>
+      
+      
+      
+      <a href="/tags/%E7%BF%BB%E8%AF%91/" class="badge h-6 no-underline hover:badge-primary">
+        翻译
       </a>
       
       
@@ -388,12 +407,23 @@
     
     </p>
 
-    这篇文章记录了 Windows 10 安装完成后无法访问网络共享的解决办法。
-1. 打开 SMB 协议 在控制面板中启用 SMB 1.0/CIFS 文件共享支持。
-路径：控制面板\程序\程序和功能 -&gt; 启用或关闭 Windows 功能 -&gt; 勾选 SMB 1.0/CIFS 文件共享支持。
-2. 组策略中打开“启用不安全来宾登录” 如果对方共享没有设置密码，Win10 默认会拦截不安全的来宾登录。
-操作步骤：
-按下 Win + R，输入 gpedit.msc 打开组策略编辑器。 依次选择：计算机配置 -&gt; 管理模板 -&gt; 网络 -&gt; Lanman 工作站。 在右侧找到 “启用不安全的来宾登录”，双击打开。 选择 “已启用”，点击确定。 原文搬运自：风中散发 (fanguo.eu.org)
+    <p>这篇文章记录了 Windows 10 安装完成后无法访问网络共享的解决办法。</p>
+<h3 id="1-打开-smb-协议">1. 打开 SMB 协议</h3>
+<p>在控制面板中启用 SMB 1.0/CIFS 文件共享支持。</p>
+<p>路径：<code>控制面板\程序\程序和功能</code> -&gt; <code>启用或关闭 Windows 功能</code> -&gt; 勾选 <code>SMB 1.0/CIFS 文件共享支持</code>。</p>
+<p><img src="https://img.orzorg.eu.org/v2/RqWa1Fu.png" alt="SMB 设置"></p>
+<h3 id="2-组策略中打开启用不安全来宾登录">2. 组策略中打开“启用不安全来宾登录”</h3>
+<p>如果对方共享没有设置密码，Win10 默认会拦截不安全的来宾登录。</p>
+<p><strong>操作步骤：</strong></p>
+<ol>
+<li>按下 <code>Win + R</code>，输入 <code>gpedit.msc</code> 打开组策略编辑器。</li>
+<li>依次选择：<code>计算机配置</code> -&gt; <code>管理模板</code> -&gt; <code>网络</code> -&gt; <code>Lanman 工作站</code>。</li>
+<li>在右侧找到 <strong>“启用不安全的来宾登录”</strong>，双击打开。</li>
+<li>选择 <strong>“已启用”</strong>，点击确定。</li>
+</ol>
+<p><img src="https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_vLiyyCT9VIzSvbmhmYivZj3PMLMix60GrYzpzMQnjg5H3weicC4kEINT55v_PSbPq5FOahl5zWL8VzDaWlkJBT5dTleqByWXnL=s0-d" alt="组策略设置"></p>
+<hr>
+<p><em>原文搬运自：风中散发 (fanguo.eu.org)</em></p>
 
     
     <div class="card-actions justify-between items-center mt-4">
