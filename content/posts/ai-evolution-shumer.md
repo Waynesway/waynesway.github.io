@@ -4,9 +4,7 @@ date: 2026-02-12T20:40:00+08:00
 draft: false
 tags: ["AI", "未来", "自动化"]
 categories: ["科技前沿"]
-cover:
-    image: "/img/ai-evolution-shumer.png"
-    alt: "AI Evolution"
+cover: "/img/ai-evolution-shumer.png"
 ---
 
 AI 的发展已经告别了“聊天机器人”时代，进入了“自主员工”时代。AI 初创公司创始人 Matt Shumer 发文警告：世界即将发生比 Covid 影响更深远的变革。
