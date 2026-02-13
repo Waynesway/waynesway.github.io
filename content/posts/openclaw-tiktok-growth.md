@@ -4,7 +4,7 @@ date: 2026-02-13T21:10:00+08:00
 draft: false
 tags: ["AI", "TikTok", "营销", "自动化"]
 categories: ["实战干货"]
-cover: "/img/img-1771017397.png"
+cover: "/img/img-1771017420.png"
 ---
 
 想要让你的产品在 TikTok、Instagram Reels 和 YouTube Shorts 上爆火吗？开发者 Jack Friks 分享了他是如何通过给 OpenClaw 注入 2 个核心技能，实现零成本获取 200,000+ 下载量的。
